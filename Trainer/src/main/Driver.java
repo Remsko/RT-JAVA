@@ -7,8 +7,8 @@ import javax.imageio.ImageIO;
 
 public class Driver
 {
-	private static final int width = 500;
-	private static final int height = 500;
+	private static final int width = 1600;
+	private static final int height = 900;
 	
 	public static void main(String[] args)
 	{
@@ -22,7 +22,7 @@ public class Driver
 		{
 			for (int x = 0; x < width; x++)
 			{
-				buffer.setRGB(x, y, 1000);
+				buffer.setRGB(x, y, 19489);
 			}
 		}
 		try
