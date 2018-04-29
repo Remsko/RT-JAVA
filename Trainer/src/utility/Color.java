@@ -6,9 +6,9 @@ public class Color
 	
 	public Color()
 	{
-		r = 0.0F;
-		g = 0.0F;
-		b = 0.0F;
+		r = 0.0f;
+		g = 0.0f;
+		b = 0.0f;
 	}
 	
 	public Color(float r, float g, float b)

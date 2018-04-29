@@ -2,8 +2,8 @@ package utility;
 
 public class Ray
 {
-	protected Origin ori;
-	protected Direction dir;
+	public Origin ori;
+	public Direction dir;
 	
 	public Ray(Origin ori, Direction dir)
 	{

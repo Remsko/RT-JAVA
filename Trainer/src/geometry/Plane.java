@@ -19,6 +19,8 @@ public class Plane extends GeometricObject
 	
 	public double hit(Ray ray)
 	{
+		t = ori.sub(ray.ori).dot(nor) / ray.dir.dot(nor);
 		
+		return (t > 10E-9 ? t : 0.0);
 	}
 }
