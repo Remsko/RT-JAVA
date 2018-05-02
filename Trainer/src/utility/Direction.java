@@ -2,7 +2,7 @@ package utility;
 
 public class Direction
 {
-	protected double x, y, z;
+	public double x, y, z;
 	
 	public Direction()
 	{

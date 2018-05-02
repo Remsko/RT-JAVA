@@ -20,14 +20,9 @@ public class Sphere extends GeometricObject
 	{
 		double a = 1.0;
 		double b = 2.0 * ray.ori.sub(center).dot(ray.dir);
-		double c = ray.ori.sub(center).dot(ray.ori.sub(center));
-		c -= radius * radius;
+		double c = ray.ori.sub(center).dot(ray.ori.sub(center)) - radius * radius;
 		Quadratic equation = new Quadratic(a, b ,c);
 		
-		if (equation.hasSolution() == false)
-			t = 0.0;
-		else if (equation.getHighestS() > 10E-9)
-			t = equation.getHighestS();
-		return (t);
+		return (equation.getPositiveS());
 	}
 }

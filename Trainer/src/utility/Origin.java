@@ -2,7 +2,7 @@ package utility;
 
 public class Origin
 {
-	protected double x, y, z;
+	public double x, y, z;
 	
 	public Origin()
 	{
