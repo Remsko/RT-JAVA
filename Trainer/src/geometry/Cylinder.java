@@ -14,6 +14,7 @@ public class Cylinder extends GeometricObject
 		this.center = new Origin(center);
 		this.radius = radius;
 		this.color = new Color(color);
+		this.str = "cylinder";
 	}
 	
 	public double hit(Ray ray)

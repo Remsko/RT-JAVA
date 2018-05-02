@@ -5,6 +5,7 @@ import utility.Ray;
 
 public abstract class GeometricObject
 {
+	public String str;
 	public Color color;
 	protected double t;
 	

@@ -19,31 +19,29 @@ public class Driver
 		BufferedImage buffer = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		
-		Sphere sphere = new Sphere(new Origin(0.0, 0.0, 0.0),
-				60.0, new Color(1.0f, 0.0f, 1.0f));
+		GeometricObject[] objArr = new GeometricObject[4];
 		
-		Plane plane = new Plane(new Origin(0.0, -60.0, 0.0),
-				new Normal(1.0, 1.0, 0.0), new Color(1.0f, 1.0f, 0.0f));
+		objArr[0] = new Sphere(new Origin(0.0, 0.0, -50.0),
+				10.0, new Color(1.0f, 1.0f, 1.0f));
+		
+		objArr[1] = new Plane(new Origin(0.0, -10.0, 0.0),
+				new Normal(0, 1.0, 0.0), new Color(0.0f, 1.0f, 1.0f));
 				
-		Cone cone = new Cone(new Origin(400.0, 0.0, 0.0),
-						10.0, new Color(0.0f, 1.0f, 1.0f));
+		objArr[2] = new Cone(new Origin(400.0, 0.0, 0.0),
+						10.0, new Color(1.0f, 1.0f, 1.0f));
 		
-		Cylinder cylinder = new Cylinder(new Origin(200.0, 0.0, 0.0),
-				30.0, new Color(1.0f, 0.0f, 0.0f));
+		objArr[3] = new Cylinder(new Origin(200.0, 0.0, 0.0),
+				30.0, new Color(0.0f, 1.0f, 0.0f));
+		
 		for (int y = 0; y < height; y++)
 		{
 			for (int x = 0; x < width; x++)
 			{
 				Ray ray = new Ray(new Origin(x - width / 2.0 + 0.5, height / 2.0 + 0.5 - y, 100),
 									new Direction(0.0, 0.0, -1.0));
-				if (sphere.hit(ray) != 0.0)
-					buffer.setRGB(x, y, sphere.color.toInteger());
-				else if (plane.hit(ray) != 0.0)
-					buffer.setRGB(x, y, plane.color.toInteger());
-				else if (cylinder.hit(ray) != 0.0)
-					buffer.setRGB(x, y, cylinder.color.toInteger());
-				else if (cone.hit(ray) != 0.0)
-					buffer.setRGB(x, y, cone.color.toInteger());
+				Intersection inter = new Intersection();
+				if (inter.closestHit(objArr, ray) != 0.0)
+					buffer.setRGB(x, y, inter.obj.color.toInteger());
 				else
 					buffer.setRGB(x, y, 0);
 			}

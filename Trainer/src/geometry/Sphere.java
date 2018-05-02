@@ -14,6 +14,7 @@ public class Sphere extends GeometricObject
 		this.center = new Origin(center);
 		this.radius = radius;
 		this.color = new Color(color);
+		this.str = "sphere";
 	}
 	
 	public double hit(Ray ray)

@@ -14,6 +14,7 @@ public class Cone extends GeometricObject
 		this.center = new Origin(center);
 		this.radius = radius;
 		this.color = new Color(color);
+		this.str = "cone";
 	}
 	
 	public double hit(Ray ray)

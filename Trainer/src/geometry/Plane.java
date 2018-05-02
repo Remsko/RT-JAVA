@@ -15,6 +15,7 @@ public class Plane extends GeometricObject
 		this.ori = new Origin(ori);
 		this.nor = new Normal(nor);
 		this.color = new Color(c);
+		this.str = "plane";
 	}
 	
 	public double hit(Ray ray)
