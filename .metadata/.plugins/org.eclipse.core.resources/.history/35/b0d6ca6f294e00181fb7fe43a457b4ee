@@ -1,0 +1,26 @@
+package geometry;
+
+import utility.Ray;
+
+public class Intersection
+{
+	public double			t;
+	public double			tmpT;
+	public GeometricObject	obj;
+	
+	GeometricObject closestHit(GeometricObject[] objArr, Ray ray)
+	{
+		t = 0xffffff;
+		tmpT = 0.0;
+		for (int i = 0; i < objArr.length; i++)
+		{
+			tmpT = objArr[i].hit(ray);
+			if (tmpT < t && tmpT > 10E-9)
+			{
+				obj = objArr[i];
+				t = tmpT;
+			}
+		}
+		return (obj);
+	}
+}

@@ -1,0 +1,44 @@
+package geometry;
+
+import utility.Color;
+import utility.Origin;
+import utility.Ray;
+
+public class Intersection
+{
+	public double			t;
+	public double			tmpT;
+	public GeometricObject	obj;
+	
+	public Intersection()
+	{
+		t = 0xffffff;
+		tmpT = 0.0;
+		obj = new Sphere(new Origin(0.0, 0.0, 0.0),
+				60.0, new Color(1.0f, 0.0f, 1.0f));;
+	}
+	
+	public double closestHit(GeometricObject[] objArr, Ray ray)
+	{
+		int i;
+		
+		i = 0;
+		t = 0xffffff;
+		tmpT = 0xffffff;
+		while (i < objArr.length)
+		{
+			tmpT = objArr[i].hit(ray);
+			if (objArr[i].str == "plane")
+				System.out.println(tmpT);
+			if (tmpT < t && tmpT > 10E-9)
+			{
+				obj = objArr[i];
+				t = tmpT;
+			}
+			i++;
+		}
+		if (t == 0xffffff)
+			t = 0.0;
+		return (t);
+	}
+}

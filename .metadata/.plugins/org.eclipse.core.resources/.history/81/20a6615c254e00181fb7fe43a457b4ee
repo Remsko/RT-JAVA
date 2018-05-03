@@ -1,0 +1,10 @@
+package geometry;
+
+public class Intersection
+{
+	double closestHit(GeometricObject[] objArr, ray Ray)
+	{
+		double t = 0.0;
+		return (t);
+	}
+}
