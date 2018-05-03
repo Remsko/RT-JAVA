@@ -1,0 +1,15 @@
+package light;
+
+import utility.Origin;
+
+public class LightObject
+{
+	public Origin	ori;
+	public Color	lightColor;
+	public float	i;
+	
+	public LightObject()
+	{
+		this.ori = null;
+	}
+}

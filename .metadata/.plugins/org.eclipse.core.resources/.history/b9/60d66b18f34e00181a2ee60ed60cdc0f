@@ -1,0 +1,20 @@
+package light;
+
+import utility.Color;
+import utility.Origin;
+
+public class LightObject
+{
+	public Origin	ori;
+	public Color	c;
+	public float	i;
+	
+	public LightObject()
+	{
+		this.ori = null;
+		this.c = null;
+		this.i = 0.0f;
+	}
+	
+	public LightObject(Origin ori, Color c, double i)
+}

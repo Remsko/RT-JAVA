@@ -1,0 +1,13 @@
+package light;
+
+import utility.Color;
+
+public class LightProcess
+{
+	public Color c;
+	
+	public LightProcess()
+	{
+		this.c = new Color(0.0f, 0.0f, 0.0f);
+	}
+}

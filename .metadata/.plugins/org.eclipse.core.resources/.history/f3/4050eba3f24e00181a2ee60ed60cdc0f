@@ -1,0 +1,11 @@
+package light;
+
+public class LightObject
+{
+	public Origin ori;
+	
+	public LightObject()
+	{
+		this.ori = null;
+	}
+}
