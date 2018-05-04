@@ -1,19 +1,21 @@
 package geometry;
 
 import utility.Color;
+import utility.Normal;
 import utility.Origin;
 import utility.Ray;
 
 public class Sphere extends GeometricObject
 {
-	public Origin center;
 	public double radius;
 	
-	public Sphere(Origin center,double radius,Color color)
+	public Sphere(Origin center,double radius,Color ambient, Color diffuse, Color specular)
 	{
 		this.center = new Origin(center);
 		this.radius = radius;
-		this.color = new Color(color);
+		this.ambient = new Color(ambient);
+		this.diffuse = new Color(diffuse);
+		this.specular = new Color(specular);
 		this.str = "sphere";
 	}
 	
@@ -25,5 +27,13 @@ public class Sphere extends GeometricObject
 		Quadratic equation = new Quadratic(a, b ,c);
 		
 		return (equation.getPositiveS());
+	}
+	
+	public Normal getNormal(Intersection inter)
+	{
+		Normal nor = new Normal(inter.pos.sub(inter.obj.center));
+		nor.normalize();
+		
+		return (nor);
 	}
 }

@@ -1,17 +1,20 @@
 package geometry;
 
+import utility.Origin;
 import utility.Ray;
 
 public class Intersection
 {
 	public double			t;
 	public double			tmp;
+	public Origin			pos;
 	public GeometricObject	obj;
 	
 	public Intersection()
 	{
 		t = 0.0;
 		tmp = 0.0;
+		pos = null;
 		obj = null;
 	}
 	
@@ -26,6 +29,7 @@ public class Intersection
 				t = tmp;
 			}
 		}
+		pos = ray.ori.add(ray.dir.mul(t));
 		return (t);
 	}
 }

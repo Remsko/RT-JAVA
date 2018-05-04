@@ -32,11 +32,26 @@ public class Color
 		b += c.b;
 	}
 	
-	public void divide(float scalar)
+	public void add(double d)
 	{
-		r /= scalar;
-		g /= scalar;
-		b /= scalar;
+		r += d;
+		g += d;
+		b += d;
+	}
+	
+	public Color mul(Color c)
+	{
+		return new Color(r * c.r, g * c.g, b * c.b);
+	}
+	
+	public Color mul(float d)
+	{
+		return new Color(r * d, g * d, b * d);
+	}
+	
+	public Color divide(float scalar)
+	{
+		return new Color(r / scalar, g / scalar, b / scalar);
 	}
 	
 	public int toInteger()

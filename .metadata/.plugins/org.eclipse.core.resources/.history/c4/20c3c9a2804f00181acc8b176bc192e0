@@ -1,0 +1,16 @@
+package geometry;
+
+import utility.Color;
+import utility.Ray;
+
+public abstract class GeometricObject
+{
+	public String str;
+	public Color ambient;
+	public Color diffuse;
+	public Color specular;
+	protected double t;
+	
+	public abstract double hit(Ray ray);
+	
+}

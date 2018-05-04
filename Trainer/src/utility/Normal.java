@@ -2,7 +2,7 @@ package utility;
 
 public class Normal
 {
-	protected double x, y, z;
+	public double x, y, z;
 	
 	public Normal()
 	{
@@ -23,6 +23,18 @@ public class Normal
 		x = nor.x;
 		y = nor.y;
 		z = nor.z;
+	}
+	
+	public Normal(Origin ori)
+	{
+		x = ori.x;
+		y = ori.y;
+		z = ori.z;
+	}
+	
+	public Direction mul(double d)
+	{
+		return new Direction(x * d, y * d, z * d);
 	}
 	
 	public double dot(Normal nor)

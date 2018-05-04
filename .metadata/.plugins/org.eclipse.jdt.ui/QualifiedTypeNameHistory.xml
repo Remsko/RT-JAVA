@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="utility.Color"/>
+<fullyQualifiedTypeName name="geometry.GeometricObject"/>
+<fullyQualifiedTypeName name="geometry.Intersection"/>
 <fullyQualifiedTypeName name="utility.Ray"/>
+<fullyQualifiedTypeName name="utility.Origin"/>
+<fullyQualifiedTypeName name="utility.Normal"/>
+<fullyQualifiedTypeName name="utility.Direction"/>
+<fullyQualifiedTypeName name="light.LightObject"/>
 </qualifiedTypeNameHistroy>

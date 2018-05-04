@@ -25,6 +25,13 @@ public class Direction
 		z = dir.z;
 	}
 	
+	public Direction(Origin ori)
+	{
+		x = ori.x;
+		y = ori.y;
+		z = ori.z;
+	}
+	
 	public Direction add(Direction dir)
 	{
 		return new Direction(x + dir.x, y + dir.y, z + dir.z);
@@ -33,6 +40,11 @@ public class Direction
 	public Direction sub(Direction dir)
 	{
 		return new Direction(x - dir.x, y - dir.y, z - dir.z);
+	}
+	
+	public Direction mul(double d)
+	{
+		return new Direction(x * d, y * d, z * d);
 	}
 	
 	public double dot(Direction dir)
@@ -48,5 +60,16 @@ public class Direction
 	public double dot(Normal nor)
 	{
 		return (x * nor.x + y * nor.y + z * nor.z);
+	}
+	
+	public void normalize()
+	{
+		double magnitude;
+		
+		magnitude = Math.sqrt(x * x + y * y + z * z);
+		
+		x /= magnitude;
+		y /= magnitude;
+		z /= magnitude;
 	}
 }

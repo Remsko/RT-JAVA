@@ -30,6 +30,16 @@ public class Origin
 		return new Origin(x + ori.x, y + ori.y, z + ori.z);
 	}
 	
+	public Origin add(Direction dir)
+	{
+		return new Origin(x + dir.x, y + dir.y, z + dir.z);
+	}
+	
+	public Origin add(double d)
+	{
+		return new Origin(x + d, y + d, z + d);
+	}
+	
 	public Origin sub(Origin ori)
 	{
 		return new Origin(x - ori.x, y - ori.y, z - ori.z);

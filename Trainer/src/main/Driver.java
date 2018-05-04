@@ -1,6 +1,8 @@
 package main;
 
 import geometry.*;
+import light.LightObject;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -22,16 +24,21 @@ public class Driver
 		GeometricObject[] objArr = new GeometricObject[4];
 		
 		objArr[0] = new Sphere(new Origin(0.0, 0.0, -50.0),
-				10.0, new Color(1.0f, 1.0f, 1.0f));
+				10.0, new Color(1.0f, 0.0f, 0.0f), new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f));
 		
 		objArr[1] = new Plane(new Origin(0.0, -10.0, 0.0),
-				new Normal(0, 1.0, 0.0), new Color(0.0f, 1.0f, 1.0f));
+				new Normal(0, 1.0, 0.0), new Color(0.0f, 0.7f, 1.0f), new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f));
 				
 		objArr[2] = new Cone(new Origin(400.0, 0.0, 0.0),
-						10.0, new Color(1.0f, 1.0f, 1.0f));
+						10.0, new Color(1.0f, 0.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f));
 		
 		objArr[3] = new Cylinder(new Origin(200.0, 0.0, 0.0),
-				30.0, new Color(0.0f, 1.0f, 0.0f));
+				30.0, new Color(1.0f, 1.0f, 0.0f), new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f));
+		
+		LightObject[] lightArr = new LightObject[2];
+		
+		lightArr[0] = new LightObject(new Origin(500.0, 500.0, 500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
+		lightArr[1] = new LightObject(new Origin(-500.0, -500.0, -500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
 		
 		for (int y = 0; y < height; y++)
 		{
@@ -41,7 +48,10 @@ public class Driver
 									new Direction(0.0, 0.0, -1.0));
 				Intersection inter = new Intersection();
 				if (inter.closestHit(objArr, ray) != 0.0)
-					buffer.setRGB(x, y, inter.obj.color.toInteger());
+				{
+					Color c = lightArr[0].Process(lightArr, inter, ray);
+					buffer.setRGB(x, y, c.toInteger());
+				}
 				else
 					buffer.setRGB(x, y, 0);
 			}
