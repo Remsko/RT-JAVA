@@ -36,12 +36,12 @@ public class Driver
 				30.0, new Color(1.0f, 1.0f, 0.0f), new Color(1.0f, 1.0f, 0.0f), new Color(1.0f, 1.0f, 0.0f));
 		
 		objArr[4] = new Sphere(new Origin(-200.0, 0.0, -50.0),
-				100.0, new Color(0.8f, 0.5f, 0.3f), new Color(0.8f, 0.5f, 0.3f), new Color(0.8f, 0.5f, 0.3f));
+				100.0, new Color(0.8f, 0.5f, 0.3f), new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 1.0f, 1.0f));
 		
 		LightObject[] lightArr = new LightObject[1];
 		
 //		lightArr[0] = new LightObject(new Origin(500.0, 500.0, 500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
-		lightArr[0] = new LightObject(new Origin(-500.0, -500.0, -500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
+		lightArr[1] = new LightObject(new Origin(-500.0, -500.0, -500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
 		
 		for (int y = 0; y < height; y++)
 		{

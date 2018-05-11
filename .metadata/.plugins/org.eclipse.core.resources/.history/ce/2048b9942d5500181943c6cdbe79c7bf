@@ -75,7 +75,7 @@ public class LightObject
 		Ray		lightRay = null;
 		double	cosAlpha = 0.0;
 		
-		ray.dir.normalize();
+		ray.normalize();
 		for (int i = 0; i < LightArr.length; i++)
 		{	
 			lightRay = new Ray(inter.pos, new Direction(LightArr[i].pos.sub(inter.pos)));

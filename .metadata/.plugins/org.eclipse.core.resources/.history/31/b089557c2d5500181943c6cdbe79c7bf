@@ -75,7 +75,6 @@ public class LightObject
 		Ray		lightRay = null;
 		double	cosAlpha = 0.0;
 		
-		ray.dir.normalize();
 		for (int i = 0; i < LightArr.length; i++)
 		{	
 			lightRay = new Ray(inter.pos, new Direction(LightArr[i].pos.sub(inter.pos)));
@@ -83,7 +82,7 @@ public class LightObject
 			if (isShadow() == false)
 			{
 				cosAlpha = lightRay.dir.dot(nor);
-				if (cosAlpha > 0.0)
+				if (cosAlpha > 0.0 && cosAlpha < 1.0)
 					c = addDiffuseLight(inter, LightArr[i], c, cosAlpha);
 			}
 			//c = addSpecularLight(inter, ray, lightRay, nor, c, LightArr[i].i);

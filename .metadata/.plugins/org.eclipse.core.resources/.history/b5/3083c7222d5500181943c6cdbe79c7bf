@@ -75,12 +75,11 @@ public class LightObject
 		Ray		lightRay = null;
 		double	cosAlpha = 0.0;
 		
-		ray.dir.normalize();
 		for (int i = 0; i < LightArr.length; i++)
 		{	
 			lightRay = new Ray(inter.pos, new Direction(LightArr[i].pos.sub(inter.pos)));
 			lightRay.dir.normalize();
-			if (isShadow() == false)
+			if (isShadow() == true)
 			{
 				cosAlpha = lightRay.dir.dot(nor);
 				if (cosAlpha > 0.0)

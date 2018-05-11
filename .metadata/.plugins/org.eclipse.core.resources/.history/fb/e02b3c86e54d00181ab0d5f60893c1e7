@@ -1,6 +1,0 @@
-package geometry;
-
-public class Cylinder extends GeometricObject
-{
-
-}

@@ -41,7 +41,7 @@ public class Driver
 		LightObject[] lightArr = new LightObject[1];
 		
 //		lightArr[0] = new LightObject(new Origin(500.0, 500.0, 500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
-		lightArr[0] = new LightObject(new Origin(-500.0, -500.0, -500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
+		lightArr[1] = new LightObject(new Origin(-500.0, -500.0, -500.0), new Color(1.0f, 1.0f, 1.0f), 1.0);
 		
 		for (int y = 0; y < height; y++)
 		{

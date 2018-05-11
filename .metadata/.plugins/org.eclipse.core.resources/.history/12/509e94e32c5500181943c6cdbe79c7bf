@@ -56,6 +56,6 @@ public class Color
 	
 	public int toInteger()
 	{
-		return ((int)(r * 255.0) << 16 | (int)(g * 255.0) << 8 | (int)(b * 255.0));
+		return ((int)(r * 255) << 16 | (int)(g * 255) << 8 | (int)(b * 255));
 	}
 }

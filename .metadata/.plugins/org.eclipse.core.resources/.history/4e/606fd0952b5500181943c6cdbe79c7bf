@@ -30,7 +30,7 @@ public class LightObject
 	
 	public boolean isShadow()
 	{
-		return (false);
+		return (true);
 	}
 	
 	public Color setAmbientLight(GeometricObject obj)
@@ -58,13 +58,7 @@ public class LightObject
 	{
 		Color tmp = new Color(inter.obj.diffuse).mul(light.c).mul((float)light.i).mul((float)cosAlpha);
 		
-		tmp.r = tmp.r < 0 ? 0 : tmp.r;
-		tmp.g = tmp.g < 0 ? 0 : tmp.g;
-		tmp.b = tmp.b < 0 ? 0 : tmp.b;
 		c.add(tmp);
-		c.r = tmp.r > 1 ? 1 : tmp.r;
-		c.g = tmp.g > 1 ? 1 : tmp.g;
-		c.b = tmp.b > 1 ? 1 : tmp.b;
 		return (c);
 	}
 	
@@ -75,7 +69,6 @@ public class LightObject
 		Ray		lightRay = null;
 		double	cosAlpha = 0.0;
 		
-		ray.dir.normalize();
 		for (int i = 0; i < LightArr.length; i++)
 		{	
 			lightRay = new Ray(inter.pos, new Direction(LightArr[i].pos.sub(inter.pos)));
