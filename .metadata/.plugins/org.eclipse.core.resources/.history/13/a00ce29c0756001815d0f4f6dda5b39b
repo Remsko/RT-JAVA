@@ -1,0 +1,9 @@
+package scene;
+
+import geometry.GeometricObject;
+
+public class World
+{
+	public ViewPlane viewplane;
+	public ArrayList<GeometricObject> objects;
+}

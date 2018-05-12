@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.awt.Color"/>
-    <fullyQualifiedTypeName name="utility.Color"/>
-    <fullyQualifiedTypeName name="utility.Point3D"/>
-    <fullyQualifiedTypeName name="geometry.Sphere"/>
     <fullyQualifiedTypeName name="utility.Ray"/>
     <fullyQualifiedTypeName name="utility.Vector3D"/>
+    <fullyQualifiedTypeName name="geometry.GeometricObject"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="utility.Color"/>
+    <fullyQualifiedTypeName name="geometry.Sphere"/>
+    <fullyQualifiedTypeName name="utility.Point3D"/>
+    <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
+    <fullyQualifiedTypeName name="scene.World"/>
+    <fullyQualifiedTypeName name="com.sun.tools.internal.xjc.Driver"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

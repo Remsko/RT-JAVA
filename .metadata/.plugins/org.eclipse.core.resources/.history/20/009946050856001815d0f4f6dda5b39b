@@ -1,0 +1,21 @@
+package scene;
+
+import java.util.ArrayList;
+
+import geometry.GeometricObject;
+import utility.Color;
+
+public class World
+{
+	public ViewPlane viewplane;
+	public ArrayList<GeometricObject> objects;
+	public Color background;
+	
+	public World(int width, int height)
+	{
+		viewplane = new ViewPlane(width, height);
+		background = new Color(0.0, 0.0, 0.0);
+		
+		objects = new ArrayList<GeometricObject>();
+	}
+}
