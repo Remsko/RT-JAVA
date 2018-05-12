@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="utility.Color"/>
-<fullyQualifiedTypeName name="geometry.GeometricObject"/>
-<fullyQualifiedTypeName name="geometry.Intersection"/>
-<fullyQualifiedTypeName name="utility.Ray"/>
-<fullyQualifiedTypeName name="utility.Origin"/>
-<fullyQualifiedTypeName name="utility.Normal"/>
-<fullyQualifiedTypeName name="utility.Direction"/>
-<fullyQualifiedTypeName name="light.LightObject"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="utility.Color"/>
+    <fullyQualifiedTypeName name="utility.Point3D"/>
+    <fullyQualifiedTypeName name="geometry.Sphere"/>
+    <fullyQualifiedTypeName name="utility.Ray"/>
+    <fullyQualifiedTypeName name="utility.Vector3D"/>
 </qualifiedTypeNameHistroy>

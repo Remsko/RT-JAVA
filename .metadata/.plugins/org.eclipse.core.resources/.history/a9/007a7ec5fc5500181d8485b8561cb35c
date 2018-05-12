@@ -1,0 +1,12 @@
+package geometry;
+
+public class Sphere
+{
+	public Point3D center;
+	public double radius;
+	
+	public Sphere()
+	{
+		
+	}
+}

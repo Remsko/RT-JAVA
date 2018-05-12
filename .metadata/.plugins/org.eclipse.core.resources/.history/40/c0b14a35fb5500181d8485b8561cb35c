@@ -1,0 +1,6 @@
+package geometry;
+
+public abstract class GeometricObject
+{
+	public abstract double hit(Ray ray);
+}

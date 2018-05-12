@@ -1,0 +1,13 @@
+package utility;
+
+public class Point3D
+{
+	public double x, y, z;
+	
+	public Point3D()
+	{
+		x = 0.0;
+		y = 0.0;
+		z = 0.0;
+	}
+}

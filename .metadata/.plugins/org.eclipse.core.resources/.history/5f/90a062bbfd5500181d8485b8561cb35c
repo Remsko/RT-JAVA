@@ -1,0 +1,35 @@
+package geometry;
+
+import utility.Color;
+import utility.Point3D;
+import utility.Ray;
+
+public class Sphere extends GeometricObject
+{
+	public Point3D center;
+	public double radius;
+	
+	public Sphere(Point3D center, Color color, double radius)
+	{
+		this.center = center;
+		this.radius = radius;
+		this.color = color;
+	}
+	
+	public double hit(Ray ray)
+	{
+		double a = 1.0;
+		double b = 2 * ray.origin.sub(center).dot(ray.direction);
+		double c = ray.origin.sub(center).dot(ray.origin.sub(center)) - radius * radius;
+		double discriminant = b * b - 4 * a * c; 
+	
+		if (discriminant < 0.0)
+		{
+			return (0.0);
+		}
+		else
+		{
+			double t = (-b - Math.sqrt(discriminant)) / (2 * a);
+		}
+	}
+}

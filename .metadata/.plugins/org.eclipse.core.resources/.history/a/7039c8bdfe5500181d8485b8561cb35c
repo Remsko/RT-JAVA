@@ -1,0 +1,39 @@
+package main;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Main
+{
+	public static void main(String [] args)
+	{
+		long start = System.nanoTime();
+
+		int	height = 900;
+		int width = 1500;
+		
+		File image = new File("Image.png");
+		BufferedImage buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				buffer.setRGB(x, y, 1000);
+			}
+		}
+		
+		try { ImageIO.write(buffer, "PNG", image); }
+		catch (Exception e)
+		{
+			System.out.println("Couldn't write image.");
+			System.exit(1);
+		}
+		
+		long end = System.nanoTime();
+		
+		System.out.println("Loop Time: " + (end - start) / 10.0E8f);
+	}
+}
