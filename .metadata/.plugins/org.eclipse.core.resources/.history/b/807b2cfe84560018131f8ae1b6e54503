@@ -1,0 +1,20 @@
+package projection;
+
+import utility.Ray;
+
+public class Orthographic extends Projection
+{
+	public Ray createRay(Point2D point)
+	{
+		Ray ray = new Ray();
+		
+		ray.origin.x = point.x;
+		ray.origin.x = point.y;
+		ray.origin.x = point.x;
+		
+		ray.direction.x = 0.0;
+		ray.direction.y = 0.0;
+		ray.direction.z = 0.0;
+		return (ray);
+	}
+}

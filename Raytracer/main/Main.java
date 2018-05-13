@@ -1,16 +1,19 @@
 package main;
 
-import geometry.Sphere;
 import scene.World;
-import utility.Color;
-import utility.Point3D;
-import utility.Ray;
-import utility.Vector3D;
+import main.Tracer;
+import projection.Orthographic;
+import projection.Projection;
+import sampling.RegularSample;
+import sampling.Sampler;
 
 public class Main
 {
 	public static World world;
 	public static Image image;
+	public static Tracer tracer;
+	public static Sampler sampler;
+	public static Projection projection;
 	
 	public static void main(String [] args)
 	{
@@ -18,22 +21,15 @@ public class Main
 
 		world = new World(1600, 900);
 		image = new Image("Image.png");
-		
-		Sphere sphere = new Sphere(new Point3D(0.0, 0.0, 0.0), new Color(1.0, 0.0, 0.0), 60.0);
+		tracer = new Tracer();
+		sampler = new RegularSample(1);
+		projection = new Orthographic();
 		
 		for (int y = 0; y < world.viewplane.height; y++)
 		{
 			for (int x = 0; x < world.viewplane.width; x++)
 			{
-				Ray ray = new Ray(new Point3D(x - world.viewplane.width / 2 + 0.5,
-						world.viewplane.height / 2 - y + 0.5, 70),
-						new Vector3D(0.0, 0.0, -1.0));
-				if (sphere.hit(ray) != 0.0)
-					image.buffer.setRGB(x, y, sphere.color.toInteger());
-				else
-				{
-					image.buffer.setRGB(x, y, 0);
-				}
+				tracer.trace(x, y);
 			}
 		}
 		image.write("PNG");

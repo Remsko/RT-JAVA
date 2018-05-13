@@ -1,0 +1,24 @@
+package main;
+
+import utility.*;
+import geometry.*;
+import scene.*;
+import main.*;
+
+public class Tracer
+{
+	public void trace(int x, int y)
+	{
+		Color color = new Color(0.0, 0.0, 0.0);
+		double min = Double.MAX_VALUE;
+		
+		for (int row = 0; row < Main.sampler.samples; row++)
+		{
+			for (int col = 0; col < Main.sampler.samples; col++)
+			{
+				Point2D point = Main.sampler.sample(row, col, x, y);
+				Ray ray = Main.projection.createRay(point);
+			}
+		}
+	}
+}

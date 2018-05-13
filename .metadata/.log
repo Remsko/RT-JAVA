@@ -1105,3 +1105,314 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.base/java.lang.Thread.run(Thread.java:844)
+!SESSION 2018-05-13 09:04:14.055 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180330-0640
+java.version=10.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.oomph.base 2 0 2018-05-13 09:05:09.692
+!MESSAGE org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+!STACK 0
+org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$1DiagnosticWrappedException: org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.handleDemandLoadException(ResourceSetImpl.java:319)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:278)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$ResourceLocator.demandLoadHelper(ResourceSetImpl.java:804)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$MappedResourceLocator.getResource(ResourceSetImpl.java:1204)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil$1.getResource(SetupCoreUtil.java:336)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getResource(ResourceSetImpl.java:352)
+	at org.eclipse.oomph.base.util.BaseUtil.loadResourceSafely(BaseUtil.java:86)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:415)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.access$0(SetupContext.java:408)
+	at org.eclipse.oomph.setup.internal.core.SetupContext$1.run(SetupContext.java:392)
+	at org.eclipse.oomph.base.util.BaseUtil.execute(BaseUtil.java:279)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:388)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.createSelf(SetupContext.java:268)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:667)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.access$5(SetupUIPlugin.java:416)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin$1$1.run(SetupUIPlugin.java:253)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1471)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:985)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:532)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:324)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:261)
+	at org.eclipse.oomph.base.util.BaseResourceImpl.doLoad(BaseResourceImpl.java:100)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1518)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1297)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	... 15 more
+
+!ENTRY org.eclipse.oomph.setup.core 2 0 2018-05-13 09:05:09.762
+!MESSAGE org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+!STACK 0
+org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$1DiagnosticWrappedException: org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.handleDemandLoadException(ResourceSetImpl.java:319)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:278)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$ResourceLocator.demandLoadHelper(ResourceSetImpl.java:804)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$MappedResourceLocator.getResource(ResourceSetImpl.java:1204)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil$1.getResource(SetupCoreUtil.java:336)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getResource(ResourceSetImpl.java:352)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:436)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.access$0(SetupContext.java:408)
+	at org.eclipse.oomph.setup.internal.core.SetupContext$1.run(SetupContext.java:392)
+	at org.eclipse.oomph.base.util.BaseUtil.execute(BaseUtil.java:279)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:388)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.createSelf(SetupContext.java:268)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:667)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.access$5(SetupUIPlugin.java:416)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin$1$1.run(SetupUIPlugin.java:253)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1471)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:985)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:532)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:324)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:261)
+	at org.eclipse.oomph.base.util.BaseResourceImpl.doLoad(BaseResourceImpl.java:100)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1518)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1297)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	... 15 more
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-05-13 09:11:04.944
+!MESSAGE Full project indexing required:
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+!SESSION 2018-05-13 09:13:51.833 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180330-0640
+java.version=10.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2018-05-13 09:14:10.160
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.oomph.base 2 0 2018-05-13 09:14:35.294
+!MESSAGE org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+!STACK 0
+org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$1DiagnosticWrappedException: org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.handleDemandLoadException(ResourceSetImpl.java:319)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:278)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$ResourceLocator.demandLoadHelper(ResourceSetImpl.java:804)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$MappedResourceLocator.getResource(ResourceSetImpl.java:1204)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil$1.getResource(SetupCoreUtil.java:336)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getResource(ResourceSetImpl.java:352)
+	at org.eclipse.oomph.base.util.BaseUtil.loadResourceSafely(BaseUtil.java:86)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:415)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.access$0(SetupContext.java:408)
+	at org.eclipse.oomph.setup.internal.core.SetupContext$1.run(SetupContext.java:392)
+	at org.eclipse.oomph.base.util.BaseUtil.execute(BaseUtil.java:279)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:388)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.createSelf(SetupContext.java:268)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:667)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.access$5(SetupUIPlugin.java:416)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin$1$1.run(SetupUIPlugin.java:253)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseExceptionpublicId: user:/locations.setup; systemId: user:/locations.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1471)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:985)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:532)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:324)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:261)
+	at org.eclipse.oomph.base.util.BaseResourceImpl.doLoad(BaseResourceImpl.java:100)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1518)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1297)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	... 15 more
+
+!ENTRY org.eclipse.oomph.setup.core 2 0 2018-05-13 09:14:35.326
+!MESSAGE org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+!STACK 0
+org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$1DiagnosticWrappedException: org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.handleDemandLoadException(ResourceSetImpl.java:319)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:278)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$ResourceLocator.demandLoadHelper(ResourceSetImpl.java:804)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$MappedResourceLocator.getResource(ResourceSetImpl.java:1204)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil$1.getResource(SetupCoreUtil.java:336)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getResource(ResourceSetImpl.java:352)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:436)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.access$0(SetupContext.java:408)
+	at org.eclipse.oomph.setup.internal.core.SetupContext$1.run(SetupContext.java:392)
+	at org.eclipse.oomph.base.util.BaseUtil.execute(BaseUtil.java:279)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.associate(SetupContext.java:388)
+	at org.eclipse.oomph.setup.internal.core.SetupContext.createSelf(SetupContext.java:268)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:667)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.access$5(SetupUIPlugin.java:416)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin$1$1.run(SetupUIPlugin.java:253)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; systemId: file:/home/rpinoit/.eclipse/360744385_linux_gtk_x86_64/configuration/org.eclipse.oomph.setup/installation.setup; lineNumber: 1; columnNumber: 1; Fin prématurée du fichier.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1471)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:985)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:532)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:324)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:261)
+	at org.eclipse.oomph.base.util.BaseResourceImpl.doLoad(BaseResourceImpl.java:100)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1518)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1297)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	... 15 more
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-05-13 21:33:41.222
+!MESSAGE Full project indexing required:
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)

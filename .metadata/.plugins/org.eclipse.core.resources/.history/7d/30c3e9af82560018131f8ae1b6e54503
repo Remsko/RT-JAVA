@@ -1,0 +1,5 @@
+package sampling;
+
+public class Point2D {
+
+}

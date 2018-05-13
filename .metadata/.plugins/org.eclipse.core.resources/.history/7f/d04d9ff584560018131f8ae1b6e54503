@@ -1,0 +1,11 @@
+package projection;
+
+import utility.Ray;
+
+public class Orthographic extends Projection
+{
+	public Ray createRay()
+	{
+		Ray ray = new Ray();
+	}
+}

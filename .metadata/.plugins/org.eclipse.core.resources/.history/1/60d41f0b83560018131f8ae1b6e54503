@@ -1,0 +1,9 @@
+package sampling;
+
+public class RegularSample
+{
+	public RegularSample(int samples)
+	{
+		this.samples = samples;
+	}
+}

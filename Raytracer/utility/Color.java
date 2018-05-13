@@ -32,6 +32,13 @@ public class Color
 		b *= color.b;
 	}
 	
+	public void	divide(int scalar)
+	{
+		r /= scalar;
+		g /= scalar;
+		b /= scalar;
+	}
+	
 	public int toInteger()
 	{
 		r = r > 1.0 ? 1.0 : r;

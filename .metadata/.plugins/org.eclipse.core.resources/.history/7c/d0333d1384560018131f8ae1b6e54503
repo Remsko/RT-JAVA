@@ -1,0 +1,6 @@
+package projection;
+
+public abstract class Projection
+{
+	public abstract Ray createRay();
+}

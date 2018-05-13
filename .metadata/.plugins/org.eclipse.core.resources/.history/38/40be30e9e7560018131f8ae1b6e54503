@@ -1,0 +1,41 @@
+package main;
+
+import utility.Color;
+import utility.Point2D;
+import utility.Ray;
+
+public class Tracer
+{
+	public void trace(int x, int y)
+	{
+		Color color = new Color(0.0, 0.0, 0.0);
+		Color tmpColor = Main.world.background;
+		double min;
+		double tmp;
+		
+		for (int row = 0; row < Main.sampler.samples; row++)
+		{
+			for (int col = 0; col < Main.sampler.samples; col++)
+			{
+				Point2D point = Main.sampler.sample(row, col, x, y);
+				Ray ray = Main.projection.createRay(point);
+				min = Double.MAX_VALUE;
+				
+				for (int i = 0; i < Main.world.objects.size(); i++)
+				{
+					tmpColor = Main.world.background;
+					tmp = Main.world.objects.get(i).hit(ray);
+					
+					if (tmp != 0.0 && tmp < min)
+					{
+						min = tmp;
+						tmpColor = Main.world.objects.get(i).color;
+					}
+				}
+				color.add(tmpColor);
+			}
+		}
+		color.divide(Main.sampler.samples * Main.sampler.samples);
+		Main.image.buffer.setRGB(x, y, color.toInteger());
+	}
+}
