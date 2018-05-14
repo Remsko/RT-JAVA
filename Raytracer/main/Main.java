@@ -1,8 +1,10 @@
 package main;
 
 import scene.World;
+import utility.Point3D;
 import main.Tracer;
-import projection.Orthographic;
+import projection.Camera;
+import projection.Perspective;
 import projection.Projection;
 import sampling.RegularSample;
 import sampling.Sampler;
@@ -14,6 +16,7 @@ public class Main
 	public static Tracer tracer;
 	public static Sampler sampler;
 	public static Projection projection;
+	public static Camera camera;
 	
 	public static void main(String [] args)
 	{
@@ -23,7 +26,8 @@ public class Main
 		image = new Image("Image.png");
 		tracer = new Tracer();
 		sampler = new RegularSample(1);
-		projection = new Orthographic();
+		camera = new Camera(new Point3D(0.0, 0.0, -300.0), 60);
+		projection = new Perspective();
 		
 		for (int y = 0; y < world.viewplane.height; y++)
 		{

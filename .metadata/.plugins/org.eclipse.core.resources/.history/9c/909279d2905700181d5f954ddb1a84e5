@@ -1,0 +1,24 @@
+package projection;
+
+import main.Main;
+import utility.Point2D;
+import utility.Point3D;
+import utility.Ray;
+
+public class Perspective extends Projection
+{
+	public Ray createRay(Point2D point)
+	{
+		Ray ray = new Ray();
+		
+		ray.origin.x = point.x;
+		ray.origin.y = point.y;
+		ray.origin.z = Main.camera.distance;
+		
+		ray.direction.x = 0.0;
+		ray.direction.y = 0.0;
+		ray.direction.z = -1.0;
+		
+		return (ray);
+	}
+}

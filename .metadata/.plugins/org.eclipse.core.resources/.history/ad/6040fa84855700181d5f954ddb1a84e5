@@ -1,0 +1,5 @@
+package projection;
+
+public class Camera {
+
+}

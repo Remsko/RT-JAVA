@@ -1,0 +1,11 @@
+package projection;
+
+import utility.Point2D;
+import utility.Ray;
+
+public abstract class Projection
+{
+	Camera camera;
+	
+	public abstract Ray createRay(Point2D point);
+}

@@ -1,0 +1,15 @@
+package projection;
+
+import utility.Point3D;
+
+public class Camera
+{
+	Point3D	position;
+	double	distance;
+	
+	public Camera(Point3D position, double FOV)
+	{
+		this.position = position;
+		this.distance = 
+	}
+}
