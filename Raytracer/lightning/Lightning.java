@@ -32,12 +32,15 @@ public class Lightning
 	
 	public Color ambient()
 	{
-		return (object.color);
+		Color ambient = new Color(object.color);
+		
+		ambient.mul(Main.world.ambientIntensity);
+		return (ambient);
 	}
 	
 	public boolean shadow()
 	{
-		return (true);
+		return (false);
 	}
 	
 	public Color PhongShading(GeometricObject object, Ray ray)

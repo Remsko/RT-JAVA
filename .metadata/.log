@@ -2321,3 +2321,60 @@ Caused by: org.xml.sax.SAXParseExceptionpublicId: file:/home/rpinoit/.eclipse/36
 	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
 	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
 	... 15 more
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-05-16 23:33:40.187
+!MESSAGE Full project indexing required:
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-11-openjdk-amd64/lib/jrt-fs.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)

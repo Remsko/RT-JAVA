@@ -1,9 +1,0 @@
-package lightning;
-
-public class Lightning
-{
-	public Color diffuse()
-	{
-		return null;
-	}
-}
