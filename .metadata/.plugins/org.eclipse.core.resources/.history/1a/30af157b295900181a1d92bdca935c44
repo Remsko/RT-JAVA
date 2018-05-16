@@ -1,0 +1,30 @@
+package lightning;
+
+import geometry.GeometricObject;
+import utility.Color;
+import utility.Ray;
+
+public class Lightning
+{
+	public Color specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		return null;
+	}
+	
+	public Color ambient(GeometricObject object)
+	{
+		return object.color;
+	}
+	
+	public Color PhongShading(GeometricObject object, Ray ray)
+	{
+		Color color = ambient(object);
+		
+		return null;
+	}
+}

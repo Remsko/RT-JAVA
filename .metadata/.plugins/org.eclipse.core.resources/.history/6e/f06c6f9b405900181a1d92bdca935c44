@@ -1,0 +1,24 @@
+package lightning;
+
+import main.Main;
+import utility.Color;
+import utility.Point3D;
+import utility.Ray;
+
+public class PointLight extends LightObject
+{
+	public PointLight(Point3D position, Color color)
+	{
+		this.position = position;
+		this.color = color;
+	}
+
+	public Ray getLightRay()
+	{
+		Ray lightRay = new Ray();
+		
+		Ray.origin = new Point3D((Point3D(Main.intersection.position));
+		
+		return (lightRay);
+	}
+}

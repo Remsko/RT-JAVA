@@ -1,8 +1,10 @@
 package geometry;
 
+import main.Main;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
+import utility.Vector3D;
 
 public class Sphere extends GeometricObject
 {
@@ -33,5 +35,13 @@ public class Sphere extends GeometricObject
 			
 			return (t > 10E-9 ? t : 0.0);
 		}
+	}
+	
+	public Vector3D getNormal()
+	{
+		Vector3D normal = new Vector3D(Main.intersection.position.sub(center));
+		
+		normal.normalize();
+		return (normal);
 	}
 }

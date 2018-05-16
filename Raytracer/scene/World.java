@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import geometry.GeometricObject;
 import geometry.Sphere;
+import lightning.LightObject;
+import lightning.PointLight;
 import utility.Color;
 import utility.Point3D;
 
@@ -11,6 +13,7 @@ public class World
 {
 	public ViewPlane viewplane;
 	public ArrayList<GeometricObject> objects;
+	public ArrayList<LightObject> lights;
 	public Color background;
 	
 	public World(int width, int height)
@@ -22,5 +25,9 @@ public class World
 		objects.add(new Sphere(new Point3D(0.0, 0.0, 0.0), new Color(1.0, 0.0, 0.0), 50));
 		objects.add(new Sphere(new Point3D(-200.0, 0.0, 0.0), new Color(0.0, 1.0, 0.0), 50));
 		objects.add(new Sphere(new Point3D(200.0, 0.0, 0.0), new Color(0.0, 0.0, 1.0), 50));
+		
+		lights = new ArrayList<LightObject>();
+		lights.add(new PointLight(new Point3D(500.0, 0.0, 0.0), new Color(1.0, 1.0, 1.0), 0.5));
+	//	lights.add(new PointLight(new Point3D(-500.0, 0.0, 0.0), new Color(1.0, 1.0, 1.0)), 1.0);
 	}
 }

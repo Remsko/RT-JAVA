@@ -1,0 +1,26 @@
+package lightning;
+
+import utility.Color;
+
+public class Lightning
+{
+	public Color specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		return null;
+	}
+	
+	public Color ambient()
+	{
+		return null;
+	}
+	
+	public Color processPhongShading()
+	{
+		return null;
+	}
+}

@@ -1,0 +1,10 @@
+package lightning;
+
+public class PointLight
+{
+	public PointLight()
+	{
+		this.position = position;
+		this.color = color;
+	}
+}

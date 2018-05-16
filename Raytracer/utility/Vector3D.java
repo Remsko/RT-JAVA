@@ -24,6 +24,13 @@ public class Vector3D
 		y = vector.y;
 		z = vector.z;
 	}
+	
+	public Vector3D(Point3D point)
+	{
+		x = point.x;
+		y = point.y;
+		z = point.z;
+	}
 
 	public Vector3D add(Vector3D vector)
 	{
@@ -34,10 +41,21 @@ public class Vector3D
 	{
 		return (new Vector3D(x - vector.x, y - vector.y, z - vector.z));
 	}
+	
+	public Vector3D sub(Point3D point)
+	{
+		return (new Vector3D(x - point.x, y - point.y, z - point.z));
+	}
+
 
 	public Vector3D mul(Vector3D vector)
 	{
 		return (new Vector3D(x * vector.x, y * vector.y, z * vector.z));
+	}
+	
+	public Vector3D mul(double factor)
+	{
+		return (new Vector3D(x * factor, y * factor, z * factor));
 	}
 	
 	public double dot(Vector3D vector)

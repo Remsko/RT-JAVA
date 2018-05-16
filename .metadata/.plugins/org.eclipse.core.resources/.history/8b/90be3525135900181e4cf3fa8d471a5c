@@ -1,0 +1,11 @@
+package lightning;
+
+public class PointLight
+{
+	public PointLight()
+	{
+		this.center = center;
+		this.radius = radius;
+		this.color = color;
+	}
+}

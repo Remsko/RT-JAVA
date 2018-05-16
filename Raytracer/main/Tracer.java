@@ -1,19 +1,19 @@
 package main;
 
+import geometry.GeometricObject;
 import utility.Color;
 import utility.Point2D;
 import utility.Ray;
 
 public class Tracer
-{
+{	
 	public void trace(int x, int y)
 	{
-		Ray		ray;
-		Color	color = new Color(0.0, 0.0, 0.0);
-		Color	tmpColor;
 		Point2D	point;
-		double	min, tmp;
-		
+		Ray ray;
+		GeometricObject object;
+		Color tmpColor;
+		Color color = new Color(0.0, 0.0, 0.0);
 		
 		for (int row = 0; row < Main.sampler.samples; row++)
 		{
@@ -21,20 +21,11 @@ public class Tracer
 			{
 				point = Main.sampler.sample(row, col, x, y);
 				ray = Main.projection.createRay(point);
-				
-				min = Double.MAX_VALUE;
-				tmpColor = Main.world.background;
-				
-				for (int i = 0; i < Main.world.objects.size(); i++)
-				{
-					tmp = Main.world.objects.get(i).hit(ray);
-					
-					if (tmp != 0.0 && tmp < min)
-					{
-						min = tmp;
-						tmpColor = Main.world.objects.get(i).color;
-					}
-				}
+				object = Main.intersection.closest(ray);
+				if (object != null)
+					tmpColor = Main.lightning.PhongShading(object, ray);
+				else
+					tmpColor = Main.world.background;
 				color.add(tmpColor);
 			}
 		}

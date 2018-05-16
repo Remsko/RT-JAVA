@@ -30,6 +30,11 @@ public class Point3D
 		return (new Point3D(x + point.x, y + point.y, z + point.z));
 	}
 	
+	public Point3D add(Vector3D vector)
+	{
+		return (new Point3D(x + vector.x, y + vector.y, z + vector.z));
+	}
+	
 	public Point3D sub(Point3D point)
 	{
 		return (new Point3D(x - point.x, y - point.y, z - point.z));

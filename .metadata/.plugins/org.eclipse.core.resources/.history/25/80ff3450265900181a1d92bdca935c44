@@ -1,0 +1,14 @@
+package lightning;
+
+import geometry.GeometricObject;
+import utility.Color;
+import utility.Point3D;
+import utility.Ray;
+
+public abstract class LightObject
+{
+	public Color color;
+	public Point3D position;
+	
+	public abstract Ray getLightRay(GeometricObject object, Ray ray);
+}

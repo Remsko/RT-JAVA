@@ -18,6 +18,13 @@ public class Color
 		this.b = b;
 	}
 	
+	public Color(Color color)
+	{
+		this.r = color.r;
+		this.g = color.g;
+		this.b = color.b;
+	}
+
 	public void	add(Color color)
 	{
 		r += color.r;
@@ -31,6 +38,13 @@ public class Color
 		g *= color.g;
 		b *= color.b;
 	}
+
+	public void mul(double factor)
+	{
+		r *= factor;
+		g *= factor;
+		b *= factor;
+	}
 	
 	public void	divide(int scalar)
 	{
@@ -41,13 +55,13 @@ public class Color
 	
 	public int toInteger()
 	{
-		r = r > 1.0 ? 1.0 : r;
-		g = g > 1.0 ? 1.0 : g;
-		b = b > 1.0 ? 1.0 : b;
+		r = Math.max(r, 0.0);
+		g = Math.max(g, 0.0);
+		b = Math.max(b, 0.0);
 		
-		r = r < 0.0 ? 0.0 : r;
-		g = g < 0.0 ? 0.0 : g;
-		b = b < 0.0 ? 0.0 : b;
+		r = Math.min(r, 1.0);
+		g = Math.min(g, 1.0);
+		b = Math.min(b, 1.0);
 		
 		return (int)(r *255.0) << 16 | (int)(g *255.0) << 8 | (int)(b *255.0);
 	}

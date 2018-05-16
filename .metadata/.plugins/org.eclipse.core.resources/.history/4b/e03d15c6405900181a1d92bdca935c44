@@ -1,0 +1,52 @@
+package lightning;
+
+import geometry.GeometricObject;
+import main.Main;
+import utility.Color;
+import utility.Ray;
+
+public class Lightning
+{
+	public Color specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		Color color = new Color(0.0, 0.0, 0.0);
+		return (color);
+	}
+	
+	public Color ambient(GeometricObject object)
+	{
+		return (object.color);
+	}
+	
+	public boolean shadow()
+	{
+		return (false);
+	}
+	
+	public Color PhongShading(GeometricObject object, Ray ray)
+	{
+		Color color = ambient(object);
+		LightObject tmpLight;
+		Ray	LightRay;
+		double cosTeta;
+		
+		for (int i = 0; i < Main.world.lights.size(); i++)
+		{
+			tmpLight = Main.world.lights.get(i);
+			LightRay = tmpLight.getLightRay();
+			LightRay.direction.normalize();
+			if (shadow() == false)
+			{
+				cosTeta = LightRay.direction.dot(object.getNormal());
+				if (cosTeta > 0.0)
+					color.add(diffuse());
+			}
+		}
+		return (color);
+	}
+}

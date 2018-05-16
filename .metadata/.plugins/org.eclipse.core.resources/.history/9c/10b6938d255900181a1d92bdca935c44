@@ -1,0 +1,26 @@
+package lightning;
+
+import utility.Color;
+
+public class Lightning
+{
+	public Color Specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		return null;
+	}
+	
+	public Color ambient()
+	{
+		return null;
+	}
+	
+	public Color process()
+	{
+		return null;
+	}
+}

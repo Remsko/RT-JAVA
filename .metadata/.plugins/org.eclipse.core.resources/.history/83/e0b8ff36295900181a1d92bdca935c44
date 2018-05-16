@@ -1,0 +1,27 @@
+package lightning;
+
+import utility.Color;
+import utility.Ray;
+
+public class Lightning
+{
+	public Color specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		return null;
+	}
+	
+	public Color ambient()
+	{
+		return null;
+	}
+	
+	public Color PhongShading(Object object, Ray ray)
+	{
+		return null;
+	}
+}
