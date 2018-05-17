@@ -45,8 +45,9 @@ public class Lightning
 	
 	public Color PhongShading(Intersection intersection, Ray ray)
 	{
-		object = intersection.object;
-		Color color = ambient();
+		this.object = intersection.object;
+		//Color color = ambient();
+		Color color = new Color(0.0, 0.0, 0.0);
 		
 		for (int i = 0; i < Main.world.lights.size(); i++)
 		{

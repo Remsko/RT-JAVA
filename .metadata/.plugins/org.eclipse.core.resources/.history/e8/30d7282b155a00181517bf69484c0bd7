@@ -4,7 +4,9 @@ import geometry.GeometricObject;
 import intersection.Intersection;
 import main.Main;
 import utility.Color;
+import utility.Point3D;
 import utility.Ray;
+import utility.Vector3D;
 
 public class Lightning
 {
@@ -26,6 +28,7 @@ public class Lightning
 		color.mul(tmpLight.color);
 		color.mul(tmpLight.intensity);
 		color.mul(cosTeta);
+	//	couleur de l'objet * couleur de la lumiere * intensité de la lumière * cosOmega
 		
 		return (color);
 	}
@@ -45,8 +48,9 @@ public class Lightning
 	
 	public Color PhongShading(Intersection intersection, Ray ray)
 	{
-		object = intersection.object;
-		Color color = ambient();
+		this.object = intersection.object;
+		//Color color = ambient();
+		Color color = new Color(0.0, 0.0, 0.0);
 		
 		for (int i = 0; i < Main.world.lights.size(); i++)
 		{

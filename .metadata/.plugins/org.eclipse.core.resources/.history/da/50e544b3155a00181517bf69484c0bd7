@@ -25,11 +25,11 @@ public class World
 		
 		objects = new ArrayList<GeometricObject>();
 		objects.add(new Sphere(new Point3D(0.0, 0.0, 0.0), new Color(1.0, 0.0, 0.0), 50));
-		objects.add(new Sphere(new Point3D(0.0, 50.0, 50.0), new Color(0.0, 1.0, 0.0), 50));
+		objects.add(new Sphere(new Point3D(0.0, 50.0, 0.0), new Color(0.0, 1.0, 0.0), 50));
 		objects.add(new Sphere(new Point3D(200.0, 0.0, 0.0), new Color(0.0, 0.0, 1.0), 50));
 		
 		lights = new ArrayList<LightObject>();
-		lights.add(new PointLight(new Point3D(100.0, 50.0, 0.0), new Color(1.0, 1.0, 1.0), 0.5));
+		lights.add(new PointLight(new Point3D(500.0, 0.0, 0.0), new Color(1.0, 1.0, 1.0), 0.5));
 		lights.add(new PointLight(new Point3D(60.0, -60.0, -60.0), new Color(1.0, 1.0, 1.0), 1.0));
 	}
 }
