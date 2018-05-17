@@ -1,7 +1,0 @@
-package scene;
-
-public class World
-{
-	public ViewPlane viewplane;
-	public ArrayList<GeometricObject> objects;
-}

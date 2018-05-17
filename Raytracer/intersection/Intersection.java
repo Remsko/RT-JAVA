@@ -8,26 +8,32 @@ import utility.Ray;
 public class Intersection
 {
 	public double t;
+	public double tmp;
+	public boolean hit;
+	public GeometricObject object;
 	public Point3D position;
 	
-	public GeometricObject closest(Ray ray)
+	public Intersection(Ray ray)
 	{
-		GeometricObject tmpObject;
-		double min;
-		
-		tmpObject = null;
-		min = Double.MAX_VALUE;
+		tmp = 0.0;
+		t = Double.MAX_VALUE;
+		hit = false;
+		object = null;
+		closest(ray);
+		position = (hit == true) ? ray.origin.add(ray.direction.mul(t)) : null;
+	}
+	
+	public void closest(Ray ray)
+	{
 		for (int i = 0; i < Main.world.objects.size(); i++)
 		{
-			t = Main.world.objects.get(i).hit(ray);
-			if (t != 0.0 && t < min)
+			tmp = Main.world.objects.get(i).hit(ray);
+			if (tmp != 0.0 && tmp < t)
 			{
-				min = t;
-				tmpObject = Main.world.objects.get(i);
+				t = tmp;
+				hit = true;
+				object = Main.world.objects.get(i);
 			}
 		}
-		if (min != Double.MIN_VALUE)
-			position = new Point3D(ray.origin.add(ray.direction.mul(t)));
-		return (tmpObject);
 	}
 }

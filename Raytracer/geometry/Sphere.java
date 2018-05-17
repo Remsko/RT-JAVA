@@ -1,6 +1,6 @@
 package geometry;
 
-import main.Main;
+import intersection.Intersection;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
@@ -37,9 +37,9 @@ public class Sphere extends GeometricObject
 		}
 	}
 	
-	public Vector3D getNormal()
+	public Vector3D getNormal(Intersection intersection)
 	{
-		Vector3D normal = new Vector3D(Main.intersection.position.sub(center));
+		Vector3D normal = new Vector3D(intersection.position.sub(center));
 		
 		normal.normalize();
 		return (normal);

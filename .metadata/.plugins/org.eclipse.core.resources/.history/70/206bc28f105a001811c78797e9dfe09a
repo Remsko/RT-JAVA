@@ -1,0 +1,68 @@
+package lightning;
+
+import geometry.GeometricObject;
+import intersection.Intersection;
+import main.Main;
+import utility.Color;
+import utility.Point3D;
+import utility.Ray;
+import utility.Vector3D;
+
+public class Lightning
+{
+	GeometricObject object;
+	LightObject tmpLight;
+	Ray	tmpLightRay;
+	double cosTeta;
+	
+	public Color specular()
+	{
+		return null;
+	}
+	
+	public Color diffuse()
+	{
+		Color color = new Color(1.0, 1.0, 1.0);
+		
+		color.mul(object.color);
+		color.mul(tmpLight.color);
+		color.mul(tmpLight.intensity);
+		color.mul(cosTeta);
+	//	couleur de l'objet * couleur de la lumiere * intensité de la lumière * cosOmega
+		
+		return (color);
+	}
+	
+	public Color ambient()
+	{
+		Color ambient = new Color(object.color);
+		
+		ambient.mul(Main.world.ambientIntensity);
+		return (ambient);
+	}
+	
+	public boolean shadow()
+	{
+		return (false);
+	}
+	
+	public Color PhongShading(Intersection intersection, Ray ray)
+	{
+		this.object = intersection.object;
+		Color color = ambient();
+		
+		for (int i = 0; i < Main.world.lights.size(); i++)
+		{
+			tmpLight = Main.world.lights.get(i);
+			tmpLightRay = new Ray(new Point3D(intersection.position),
+					new Vector3D(tmpLight.position.sub(intersection.position)));
+			if (shadow() == false)
+			{
+				cosTeta = tmpLightRay.direction.dot(object.getNormal());
+				if (cosTeta > 0.0)
+					color.add(diffuse());
+			}
+		}
+		return (color);
+	}
+}

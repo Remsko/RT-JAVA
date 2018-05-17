@@ -1,9 +1,12 @@
 package lightning;
 
 import geometry.GeometricObject;
+import intersection.Intersection;
 import main.Main;
 import utility.Color;
+import utility.Point3D;
 import utility.Ray;
+import utility.Vector3D;
 
 public class Lightning
 {
@@ -43,18 +46,19 @@ public class Lightning
 		return (false);
 	}
 	
-	public Color PhongShading(GeometricObject object, Ray ray)
+	public Color PhongShading(Intersection intersection, Ray ray)
 	{
-		this.object = object;
-		Color color = ambient();
+		this.object = intersection.object;
+		//Color color = ambient();
+		Color color = new Color(0.0, 0.0, 0.0);
 		
 		for (int i = 0; i < Main.world.lights.size(); i++)
 		{
 			tmpLight = Main.world.lights.get(i);
-			tmpLightRay = tmpLight.getLightRay();
+			tmpLightRay = tmpLight.getLightRay(intersection);
 			if (shadow() == false)
 			{
-				cosTeta = tmpLightRay.direction.dot(object.getNormal());
+				cosTeta = tmpLightRay.direction.dot(object.getNormal(intersection));
 				if (cosTeta > 0.0)
 					color.add(diffuse());
 			}

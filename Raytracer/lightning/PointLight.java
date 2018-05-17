@@ -1,6 +1,6 @@
 package lightning;
 
-import main.Main;
+import intersection.Intersection;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
@@ -15,10 +15,10 @@ public class PointLight extends LightObject
 		this.intensity = intensity;
 	}
 
-	public Ray getLightRay()
+	public Ray getLightRay(Intersection intersection)
 	{
-		Ray lightRay = new Ray(new Point3D(Main.intersection.position),
-				new Vector3D(this.position.sub(Main.intersection.position)));
+		Ray lightRay = new Ray(new Point3D(intersection.position),
+				new Vector3D(this.position.sub(intersection.position)));
 		
 		lightRay.direction.normalize();
 		return (lightRay);

@@ -2,7 +2,6 @@ package main;
 
 import scene.World;
 import utility.Point3D;
-import intersection.Intersection;
 import lightning.Lightning;
 import main.Tracer;
 import projection.Camera;
@@ -19,7 +18,6 @@ public class Main
 	public static Sampler sampler;
 	public static Projection projection;
 	public static Camera camera;
-	public static Intersection intersection;
 	public static Lightning lightning;
 	
 	public static void main(String [] args)
@@ -30,9 +28,8 @@ public class Main
 		image = new Image("Image.png");
 		tracer = new Tracer();
 		sampler = new RegularSample(1);
-		camera = new Camera(new Point3D(0.0, 0.0, -200.0), 60);
+		camera = new Camera(new Point3D(100.0, 0.0, -200.0), 60);
 		projection = new Perspective();
-		intersection = new Intersection();
 		lightning = new Lightning();
 		
 		for (int y = 0; y < world.viewplane.height; y++)

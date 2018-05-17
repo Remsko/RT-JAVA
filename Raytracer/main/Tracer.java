@@ -1,6 +1,6 @@
 package main;
 
-import geometry.GeometricObject;
+import intersection.Intersection;
 import utility.Color;
 import utility.Point2D;
 import utility.Ray;
@@ -11,7 +11,7 @@ public class Tracer
 	{
 		Point2D	point;
 		Ray ray;
-		GeometricObject object;
+		Intersection intersection;
 		Color tmpColor;
 		Color color = new Color(0.0, 0.0, 0.0);
 		
@@ -21,9 +21,9 @@ public class Tracer
 			{
 				point = Main.sampler.sample(row, col, x, y);
 				ray = Main.projection.createRay(point);
-				object = Main.intersection.closest(ray);
-				if (object != null)
-					tmpColor = Main.lightning.PhongShading(object, ray);
+				intersection = new Intersection(ray);
+				if (intersection.hit == true)
+					tmpColor = Main.lightning.PhongShading(intersection, ray);
 				else
 					tmpColor = Main.world.background;
 				color.add(tmpColor);

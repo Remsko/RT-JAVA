@@ -21,4 +21,5 @@
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="utility.Point2D"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.Main"/>
+    <fullyQualifiedTypeName name="intersection.Intersection"/>
 </qualifiedTypeNameHistroy>
