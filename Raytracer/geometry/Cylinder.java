@@ -7,12 +7,12 @@ import utility.Point3D;
 import utility.Ray;
 import utility.Vector3D;
 
-public class Sphere extends GeometricObject
+public class Cylinder extends GeometricObject
 {
 	public Point3D center;
 	public double radius;
 	
-	public Sphere(Point3D center, Color color, double radius)
+	public Cylinder(Point3D center, Color color, double radius)
 	{
 		this.center = center;
 		this.radius = radius;
@@ -23,9 +23,9 @@ public class Sphere extends GeometricObject
 	{
 		Point3D positionRelative = ray.origin.sub(center);
 		
-		double a = 1.0;
-		double b = 2.0 * positionRelative.dot(ray.direction);
-		double c = positionRelative.dot(ray.origin.sub(center)) - radius * radius;
+		double a = ray.direction.x * ray.direction.x + ray.direction.z * ray.direction.z;
+		double b = 2.0 * (ray.direction.x * positionRelative.x + ray.direction.z * positionRelative.z);
+		double c = positionRelative.x * positionRelative.x + positionRelative.z * positionRelative.z - radius * radius;
 	
 		return (Main.quadratic.solver(a, b, c));
 	}
@@ -34,6 +34,7 @@ public class Sphere extends GeometricObject
 	{
 		Vector3D normal = new Vector3D(intersection.position.sub(center));
 		
+		normal.y = 0;
 		normal.normalize();
 		return (normal);
 	}
