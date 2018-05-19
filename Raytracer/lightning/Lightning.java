@@ -15,30 +15,29 @@ public class Lightning
 	double cosTeta;
 	double cosOmega;
 	
-	public Color specular()
+	public Color specularConstribution()
 	{
-		Color color = new Color(1.0, 1.0, 1.0);
+		Color specular = new Color(1.0, 1.0, 1.0);
 		
-		color.mul(tmpLight.color);
-		color.mul(tmpLight.intensity);
-		color.mul(cosTeta);
+		specular.mul(tmpLight.intensity);
+		specular.mul(cosOmega);
 		
-		return (color);
+		return (specular);
 	}
 	
-	public Color diffuse()
+	public Color diffuseConstribution()
 	{
-		Color color = new Color(1.0, 1.0, 1.0);
+		Color diffuse = new Color(1.0, 1.0, 1.0);
 		
-		color.mul(object.color);
-		color.mul(tmpLight.color);
-		color.mul(tmpLight.intensity);
-		color.mul(cosTeta);
+		diffuse.mul(object.color);
+		diffuse.mul(tmpLight.color);
+		diffuse.mul(tmpLight.intensity);
+		diffuse.mul(cosTeta);
 		
-		return (color);
+		return (diffuse);
 	}
 	
-	public Color ambient()
+	public Color ambientContribution()
 	{
 		Color ambient = new Color(object.color);
 		
@@ -54,7 +53,7 @@ public class Lightning
 	public Color PhongShading(Intersection intersection, Ray ray)
 	{
 		object = intersection.object;
-		Color color = ambient();
+		Color color = ambientContribution();
 		Vector3D normal;
 		Vector3D refracted;
 		Vector3D vision;
@@ -68,15 +67,14 @@ public class Lightning
 				normal = object.getNormal(intersection);
 				cosTeta = tmpLightRay.direction.dot(normal);
 				if (cosTeta > 0.0)
-					color.add(diffuse());
-				refracted = object.getNormal(intersection).mul(2.0 * tmpLightRay.direction.dot(object.getNormal(intersection)));
-				refracted.sub(tmpLightRay.direction);
+					color.add(diffuseConstribution());
+				refracted = normal.mul(2.0 * cosTeta).sub(tmpLightRay.direction);
 				refracted.normalize();
 				vision = ray.origin.sub_vec(intersection.position);
 				vision.normalize();
-				cosOmega = Math.pow(Math.max(refracted.dot(vision), 0.0), 500.0);
+				cosOmega = Math.pow(Math.max(refracted.dot(vision), 0.0), Main.world.alpha);
 				if (cosOmega > 0.0)
-					color.add(specular());
+					color.add(specularConstribution());
 			}
 		}
 		return (color);

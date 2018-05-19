@@ -23,15 +23,15 @@ public class World
 		viewplane = new ViewPlane(width, height);
 		background = new Color(0.0, 0.0, 0.0);
 		ambientIntensity = 0.2;
-		alpha = 3000.0;
+		alpha = 50.0;
 		
 		objects = new ArrayList<GeometricObject>();
-		objects.add(new Sphere(new Point3D(0.0, 0.0, 0.0), new Color(1.0, 0.0, 0.0), 50));
-		objects.add(new Sphere(new Point3D(0.0, 50.0, 50.0), new Color(0.0, 1.0, 0.0), 50));
-		objects.add(new Sphere(new Point3D(200.0, 0.0, 0.0), new Color(0.0, 0.0, 1.0), 50));
+		objects.add(new Sphere(new Point3D(0.0, 0.0, 0.0), new Color(1.0, 0.3, 0.3), 50));
+		objects.add(new Sphere(new Point3D(0.0, 50.0, 50.0), new Color(1.0, 1.0, 1.0), 70));
+		objects.add(new Sphere(new Point3D(200.0, 0.0, 0.0), new Color(0.3, 0.3, 1.0), 50));
 		
 		lights = new ArrayList<LightObject>();
-		lights.add(new PointLight(new Point3D(100.0, 50.0, 0.0), new Color(1.0, 1.0, 1.0), 1.0));
-		lights.add(new PointLight(new Point3D(60.0, -60.0, -60.0), new Color(1.0, 1.0, 1.0), 1.0));
+		lights.add(new PointLight(new Point3D(100.0, 50.0, 0.0), new Color(1.0, 0.0, 0.0), 1.0));
+		lights.add(new PointLight(new Point3D(60.0, -60.0, -60.0), new Color(0.0, 0.0, 1.0), 0.5));
 	}
 }

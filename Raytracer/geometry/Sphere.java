@@ -1,6 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
+import main.Main;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
@@ -23,18 +24,8 @@ public class Sphere extends GeometricObject
 		double a = 1.0;
 		double b = 2 * ray.origin.sub(center).dot(ray.direction);
 		double c = ray.origin.sub(center).dot(ray.origin.sub(center)) - radius * radius;
-		double discriminant = b * b - 4 * a * c; 
 	
-		if (discriminant < 0.0)
-			return (0.0);
-		else
-		{
-			double t1 = (-b - Math.sqrt(discriminant)) / (2 * a);
-			double t2 = (-b + Math.sqrt(discriminant)) / (2 * a);
-			double t = t1 < t2 ? t1 : t2;
-			
-			return (t > 10E-9 ? t : 0.0);
-		}
+		return (Main.quadratic.solver(a, b, c));
 	}
 	
 	public Vector3D getNormal(Intersection intersection)

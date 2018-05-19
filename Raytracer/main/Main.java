@@ -2,6 +2,7 @@ package main;
 
 import scene.World;
 import utility.Point3D;
+import intersection.Quadratic;
 import lightning.Lightning;
 import main.Tracer;
 import projection.Camera;
@@ -19,18 +20,20 @@ public class Main
 	public static Projection projection;
 	public static Camera camera;
 	public static Lightning lightning;
+	public static Quadratic quadratic;
 	
 	public static void main(String [] args)
 	{
 		long start = System.nanoTime();
 
-		world = new World(1500, 900);
+		world = new World(6000, 3600);
 		image = new Image("Image.png");
 		tracer = new Tracer();
 		sampler = new RegularSample(1);
 		camera = new Camera(new Point3D(100.0, 0.0, -100.0), 60);
 		projection = new Perspective();
 		lightning = new Lightning();
+		quadratic = new Quadratic();
 		
 		for (int y = 0; y < world.viewplane.height; y++)
 		{
