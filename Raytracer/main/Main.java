@@ -27,7 +27,7 @@ public class Main
 		world = new World(1500, 900);
 		image = new Image("Image.png");
 		tracer = new Tracer();
-		sampler = new RegularSample(16);
+		sampler = new RegularSample(1);
 		camera = new Camera(new Point3D(100.0, 0.0, -100.0), 60);
 		projection = new Perspective();
 		lightning = new Lightning();
@@ -45,3 +45,33 @@ public class Main
 		System.out.println("Loop Time: " + (end - start) / 10.0E8f);
 	}
 }
+
+
+
+
+
+/*
+object = intersection.object;
+//Color color = ambient();
+Color color = new Color(0.0, 0.0, 0.0);
+Vector3D normal;
+
+for (int i = 0; i < Main.world.lights.size(); i++)
+{
+	tmpLight = Main.world.lights.get(i);
+	tmpLightRay = tmpLight.getLightRay(intersection);
+	if (shadow() == false)
+	{
+		normal = object.getNormal(intersection);
+		cosTeta = tmpLightRay.direction.dot(normal);
+		//if (cosTeta > 0.0)
+			//color.add(diffuse());
+		Vector3D vision = ray.origin.sub_vec(intersection.position);
+		Vector3D refracted = normal.mul(2.0 * cosTeta).sub(tmpLightRay.direction);
+		double cosOmega = Math.pow(Math.max(0.0, refracted.dot(vision)), 300.0);
+		if (cosOmega > 0.0)
+			color.add(specular());
+	}
+}
+return (color);
+*/

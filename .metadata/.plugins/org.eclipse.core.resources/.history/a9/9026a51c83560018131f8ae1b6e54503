@@ -1,9 +1,0 @@
-package sampling;
-
-public class RegularSample extends Sampler
-{
-	public RegularSample(int samples)
-	{
-		this.samples = samples;
-	}
-}

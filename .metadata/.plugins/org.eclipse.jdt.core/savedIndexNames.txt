@@ -1,3 +1,0 @@
-INDEX VERSION 1.130+/home/rpinoit/Workspace/RT/.metadata/.plugins/org.eclipse.jdt.core
-417528467.index
-646308851.index

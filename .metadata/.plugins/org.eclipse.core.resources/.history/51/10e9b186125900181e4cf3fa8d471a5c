@@ -1,8 +1,0 @@
-package lightning;
-
-public abstract class LightObject
-{
-	public Color color;
-	
-	public abstract Ray getLightRay();
-}

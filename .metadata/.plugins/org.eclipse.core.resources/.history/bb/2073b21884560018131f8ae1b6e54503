@@ -1,8 +1,0 @@
-package projection;
-
-import utility.Ray;
-
-public abstract class Projection
-{
-	public abstract Ray createRay();
-}

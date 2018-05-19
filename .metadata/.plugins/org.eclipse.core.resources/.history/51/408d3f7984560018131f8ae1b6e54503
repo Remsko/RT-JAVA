@@ -1,9 +1,0 @@
-package projection;
-
-public class Orthographic extends Projection
-{
-	public Ray createRay()
-	{
-		Ray ray = new Ray();
-	}
-}

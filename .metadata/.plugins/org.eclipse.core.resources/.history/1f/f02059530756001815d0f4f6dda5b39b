@@ -1,7 +1,0 @@
-package scene;
-
-public class ViewPlane
-{
-	public int width;
-	public int height;
-}
