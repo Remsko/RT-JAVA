@@ -4,7 +4,7 @@ public class Quadratic
 {
 	public double solver(double a, double b, double c)
 	{
-		double discriminant = b *b - 4 * a * c;
+		double discriminant = b * b - 4 * a * c;
 		if (discriminant < 0.0)
 			return (0.0);
 		double answer = Math.min(

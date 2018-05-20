@@ -16,6 +16,7 @@ public class Perspective extends Projection
 		ray.direction.y = point.y;
 		ray.direction.z = Main.camera.distance;
 		
+		Main.rotation.rotate(ray.direction, Main.camera.rotation);
 		ray.direction.normalize();
 		return (ray);
 	}

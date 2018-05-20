@@ -16,7 +16,7 @@ public class RegularSample extends Sampler
 		Point2D point = new Point2D();
 		
 		point.x = x - Main.world.viewplane.width / 2 + (col + 0.5) / samples;
-		point.y = y - Main.world.viewplane.height / 2 + (row + 0.5) / samples;
+		point.y = Main.world.viewplane.height / 2 - y + (row + 0.5) / samples;
 		
 		return (point);
 	}

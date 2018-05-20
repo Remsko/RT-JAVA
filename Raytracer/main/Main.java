@@ -5,6 +5,7 @@ import utility.Point3D;
 import intersection.Quadratic;
 import lightning.Lightning;
 import main.Tracer;
+import matrice.Rotation;
 import projection.Camera;
 import projection.Perspective;
 import projection.Projection;
@@ -21,19 +22,21 @@ public class Main
 	public static Camera camera;
 	public static Lightning lightning;
 	public static Quadratic quadratic;
+	public static Rotation rotation;
 	
 	public static void main(String [] args)
 	{
 		long start = System.nanoTime();
 
-		world = new World(3000, 1800);
+		world = new World(750, 450);
 		image = new Image("Image.png");
 		tracer = new Tracer();
-		sampler = new RegularSample(16);
-		camera = new Camera(new Point3D(100.0, 10.0, -100.0), 60);
+		sampler = new RegularSample(1);
+		camera = new Camera(new Point3D(50.0, 0.0, -300.0), 30, new Point3D(0.0, 0.0, 0.0));
 		projection = new Perspective();
 		lightning = new Lightning();
 		quadratic = new Quadratic();
+		rotation = new Rotation();
 		
 		for (int y = 0; y < world.viewplane.height; y++)
 		{

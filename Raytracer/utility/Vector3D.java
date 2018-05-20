@@ -1,9 +1,7 @@
 package utility;
 
-public class Vector3D
+public class Vector3D extends TripleDouble
 {
-	public double x, y, z;
-	
 	public Vector3D()
 	{
 		x = 0.0;

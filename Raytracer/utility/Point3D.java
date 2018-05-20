@@ -1,9 +1,7 @@
 package utility;
 
-public class Point3D
+public class Point3D extends TripleDouble
 {
-	public double x, y, z;
-	
 	public Point3D()
 	{
 		x = 0.0;

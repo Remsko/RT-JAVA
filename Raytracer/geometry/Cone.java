@@ -10,12 +10,17 @@ import utility.Vector3D;
 public class Cone extends GeometricObject
 {
 	public Point3D center;
+	public Point3D rotation;
 	public double radius;
 	public double powRadius;
+	private Vector3D normal;
+	private Point3D relative;
+	private Vector3D rayDirection;
 	
-	public Cone(Point3D center, Color color, double radius)
+	public Cone(Point3D center, Color color, double radius, Point3D rotation)
 	{
 		this.center = center;
+		this.rotation = rotation;
 		this.radius = Math.toRadians(radius);
 		this.powRadius = this.radius * this.radius;
 		this.color = color;
@@ -23,10 +28,14 @@ public class Cone extends GeometricObject
 	
 	public double hit(Ray ray)
 	{
-		Point3D relative = ray.origin.sub(center);
+		relative = ray.origin.sub(center);
+		Main.rotation.rotate(relative, rotation);
 		
-		double a = ray.direction.x * ray.direction.x - ray.direction.y * ray.direction.y * powRadius + ray.direction.z * ray.direction.z;
-		double b = 2.0 * (ray.direction.x * relative.x - ray.direction.y * relative.y * powRadius + ray.direction.z * relative.z);
+		rayDirection = new Vector3D(ray.direction);
+		Main.rotation.rotate(rayDirection, rotation);
+		
+		double a = rayDirection.x * rayDirection.x - rayDirection.y * rayDirection.y * powRadius + rayDirection.z * rayDirection.z;
+		double b = 2.0 * (rayDirection.x * relative.x - rayDirection.y * relative.y * powRadius + rayDirection.z * relative.z);
 		double c = relative.x * relative.x - relative.y * relative.y * powRadius + relative.z * relative.z;
 	
 		return (Main.quadratic.solver(a, b, c));
@@ -34,9 +43,12 @@ public class Cone extends GeometricObject
 	
 	public Vector3D getNormal(Intersection intersection)
 	{
-		Vector3D normal = new Vector3D(intersection.position.sub(center));
+		normal = intersection.position.sub_vec(center);
 		
+		Main.rotation.rotate(normal, rotation);
 		normal.y *= -Math.tan(powRadius);
+		
+		Main.rotation.reverseRotate(normal, rotation);
 		normal.normalize();
 		
 		return (normal);
