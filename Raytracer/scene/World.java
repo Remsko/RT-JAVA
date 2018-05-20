@@ -36,7 +36,7 @@ public class World
 
 		objects.add(new Cylinder(new Point3D(0.0, 0.0, 300.0), new Color(0.0, 1.0, 0.0), 50));
 		
-		objects.add(new Cone(new Point3D(100.0, -200.0, 300.0), new Color(0.0, 1.0, 1.0), 20));
+		objects.add(new Cone(new Point3D(200.0, -200.0, 200.0), new Color(0.0, 1.0, 1.0), 20));
 		
 		objects.add(new Plane(new Point3D(0.0, 100.0, 0.0), new Color(1.0, 1.0, 1.0), new Vector3D(0.0, -1.0, 0.0)));
 		

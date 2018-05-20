@@ -26,11 +26,11 @@ public class Main
 	{
 		long start = System.nanoTime();
 
-		world = new World(1500, 900);
+		world = new World(3000, 1800);
 		image = new Image("Image.png");
 		tracer = new Tracer();
-		sampler = new RegularSample(1);
-		camera = new Camera(new Point3D(100.0, 0.0, -100.0), 60);
+		sampler = new RegularSample(16);
+		camera = new Camera(new Point3D(100.0, 10.0, -100.0), 60);
 		projection = new Perspective();
 		lightning = new Lightning();
 		quadratic = new Quadratic();

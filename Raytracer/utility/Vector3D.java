@@ -58,6 +58,11 @@ public class Vector3D
 		return (new Vector3D(x * factor, y * factor, z * factor));
 	}
 	
+	public double len()
+	{
+		return (Math.sqrt(x * x + y * y + z * z));
+	}
+	
 	public double dot(Vector3D vector)
 	{
 		return (x * vector.x + y * vector.y + z * vector.z);

@@ -12,6 +12,7 @@ public class Lightning
 	GeometricObject object;
 	LightObject tmpLight;
 	Ray	tmpLightRay;
+	double tmpLightDistance;
 	double cosθ;
 	double cosΩ;
 	
@@ -47,7 +48,9 @@ public class Lightning
 	
 	public boolean shadow()
 	{
-		return (false);
+		Intersection intersection = new Intersection(tmpLightRay);
+		
+		return (intersection.t < tmpLightDistance ? true : false);
 	}
 	
 	public Color PhongShading(Intersection intersection, Ray ray)
@@ -62,6 +65,8 @@ public class Lightning
 		{
 			tmpLight = Main.world.lights.get(i);
 			tmpLightRay = tmpLight.getLightRay(intersection);
+			tmpLightDistance = tmpLightRay.direction.len();
+			tmpLightRay.direction.normalize();
 			if (shadow() == false)
 			{
 				normal = object.getNormal(intersection);

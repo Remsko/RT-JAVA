@@ -20,7 +20,6 @@ public class PointLight extends LightObject
 		Ray lightRay = new Ray(new Point3D(intersection.position),
 				new Vector3D(this.position.sub(intersection.position)));
 		
-		lightRay.direction.normalize();
 		return (lightRay);
 	}
 }

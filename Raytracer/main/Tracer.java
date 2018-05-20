@@ -22,7 +22,7 @@ public class Tracer
 				point = Main.sampler.sample(row, col, x, y);
 				ray = Main.projection.createRay(point);
 				intersection = new Intersection(ray);
-				if (intersection.hit == true)
+				if (intersection.object != null)
 					tmpColor = Main.lightning.PhongShading(intersection, ray);
 				else
 					tmpColor = Main.world.background;
