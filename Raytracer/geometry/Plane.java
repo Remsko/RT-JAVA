@@ -1,6 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
+import type.ObjectType;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
@@ -12,11 +13,12 @@ public class Plane extends GeometricObject
 	Vector3D normal;
 	double t;
 	
-	public Plane(Point3D center, Color color, Vector3D normal)
+	public Plane(Point3D center, Color color, Vector3D normal, ObjectType type)
 	{
 		this.center = center;
 		this.color = color;
 		this.normal = normal;
+		this.type = type;
 
 		normal.normalize();
 	}

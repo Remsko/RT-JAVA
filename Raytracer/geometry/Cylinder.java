@@ -2,6 +2,7 @@ package geometry;
 
 import intersection.Intersection;
 import main.Main;
+import type.ObjectType;
 import utility.Color;
 import utility.Point3D;
 import utility.Ray;
@@ -16,12 +17,13 @@ public class Cylinder extends GeometricObject
 	private Point3D relative;
 	private Vector3D rayDirection;
 	
-	public Cylinder(Point3D center, Color color, double radius, Point3D rotation)
+	public Cylinder(Point3D center, Color color, double radius, Point3D rotation, ObjectType type)
 	{
 		this.center = center;
 		this.radius = radius;
 		this.color = color;
 		this.rotation = rotation;
+		this.type = type;
 	}
 	
 	public double hit(Ray ray)
