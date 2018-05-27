@@ -29,7 +29,7 @@ public class Vector3D extends TripleDouble
 		y = point.y;
 		z = point.z;
 	}
-
+	
 	public Vector3D add(Vector3D vector)
 	{
 		return (new Vector3D(x + vector.x, y + vector.y, z + vector.z));
@@ -54,6 +54,11 @@ public class Vector3D extends TripleDouble
 	public Vector3D mul(double factor)
 	{
 		return (new Vector3D(x * factor, y * factor, z * factor));
+	}
+	
+	public Vector3D opposite()
+	{
+		return (new Vector3D(-x, -y, -z));
 	}
 	
 	public double len()

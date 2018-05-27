@@ -12,7 +12,7 @@ public class Cylinder extends GeometricObject
 {
 	public Point3D center;
 	public Point3D rotation;
-	public double radius;
+	public double powRadius;
 	private Vector3D normal;
 	private Point3D relative;
 	private Vector3D rayDirection;
@@ -20,7 +20,7 @@ public class Cylinder extends GeometricObject
 	public Cylinder(Point3D center, Color color, double radius, Point3D rotation, ObjectType type)
 	{
 		this.center = center;
-		this.radius = radius;
+		this.powRadius = radius * radius;
 		this.color = color;
 		this.rotation = rotation;
 		this.type = type;
@@ -36,7 +36,7 @@ public class Cylinder extends GeometricObject
 		
 		double a = rayDirection.x * rayDirection.x + rayDirection.z * rayDirection.z;
 		double b = 2.0 * (rayDirection.x * relative.x + rayDirection.z * relative.z);
-		double c = relative.x * relative.x + relative.z * relative.z - radius * radius;
+		double c = relative.x * relative.x + relative.z * relative.z - powRadius;
 	
 		return (Main.quadratic.solver(a, b, c));
 	}

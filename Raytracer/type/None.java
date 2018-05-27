@@ -4,7 +4,7 @@ public class None extends ObjectType
 {
 	public None()
 	{
-		this.coefficient = 0.0;
+		this.IOR = 0.0;
 	}
 	
 	public String getType()

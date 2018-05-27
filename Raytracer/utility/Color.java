@@ -32,6 +32,16 @@ public class Color
 		b += color.b;
 	}
 	
+	public Color add_ret(double factor)
+	{
+		return (new Color(r + factor, g + factor, b + factor));
+	}
+	
+	public Color add_ret(Color color)
+	{
+		return (new Color(r + color.r, g + color.g, b + color.b));
+	}
+	
 	public void	mul(Color color)
 	{
 		r *= color.r;

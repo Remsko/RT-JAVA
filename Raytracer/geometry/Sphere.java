@@ -11,12 +11,12 @@ import utility.Vector3D;
 public class Sphere extends GeometricObject
 {
 	public Point3D center;
-	public double radius;
+	public double powRadius;
 	
 	public Sphere(Point3D center, Color color, double radius, ObjectType type)
 	{
 		this.center = center;
-		this.radius = radius;
+		this.powRadius = radius * radius;
 		this.color = color;
 		this.type = type;
 	}
@@ -27,7 +27,7 @@ public class Sphere extends GeometricObject
 		
 		double a = 1.0;
 		double b = 2.0 * positionRelative.dot(ray.direction);
-		double c = positionRelative.dot(ray.origin.sub(center)) - radius * radius;
+		double c = positionRelative.dot(ray.origin.sub(center)) - powRadius;
 	
 		return (Main.quadratic.solver(a, b, c));
 	}
