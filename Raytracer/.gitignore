@@ -1,1 +1,5 @@
-/Plane.class
+*/*.class
+.classpath
+.project
+.metadata/
+.settings/
