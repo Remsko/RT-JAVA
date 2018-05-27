@@ -28,10 +28,10 @@ public class Main
 	{
 		long start = System.nanoTime();
 
-		world = new World(750, 450);
+		world = new World(1500, 900);
 		image = new Image("Image.png");
 		tracer = new Tracer();
-		sampler = new RegularSample(1);
+		sampler = new RegularSample(8);
 		camera = new Camera(new Point3D(50.0, 0.0, -300.0), 30, new Point3D(0.0, 0.0, 0.0));
 		projection = new Perspective();
 		lightning = new Lightning();

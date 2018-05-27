@@ -13,15 +13,15 @@ public class Lightning
 	LightObject tmpLight;
 	Ray	tmpLightRay;
 	double tmpLightDistance;
-	double cosθ;
-	double cosΩ;
+	double cosTeta;
+	double cosOmega;
 	
 	public Color specularConstribution()
 	{
 		Color specular = new Color(0.7, 0.7, 0.7);
 		
 		specular.mul(tmpLight.intensity);
-		specular.mul(cosΩ);
+		specular.mul(cosOmega);
 		
 		return (specular);
 	}
@@ -33,7 +33,7 @@ public class Lightning
 		diffuse.mul(object.color);
 		diffuse.mul(tmpLight.color);
 		diffuse.mul(tmpLight.intensity);
-		diffuse.mul(cosθ);
+		diffuse.mul(cosTeta);
 		
 		return (diffuse);
 	}
@@ -70,15 +70,15 @@ public class Lightning
 			if (shadow() == false)
 			{
 				normal = object.getNormal(intersection);
-				cosθ = tmpLightRay.direction.dot(normal);
-				if (cosθ > 0.0)
+				cosTeta = tmpLightRay.direction.dot(normal);
+				if (cosTeta > 0.0)
 					color.add(diffuseConstribution());
-				refracted = normal.mul(2.0 * cosθ).sub(tmpLightRay.direction);
+				refracted = normal.mul(2.0 * cosTeta).sub(tmpLightRay.direction);
 				refracted.normalize();
 				vision = ray.origin.sub_vec(intersection.position);
 				vision.normalize();
-				cosΩ = Math.pow(Math.max(refracted.dot(vision), 0.0), Main.world.alpha);
-				if (cosΩ > 0.0)
+				cosOmega = Math.pow(Math.max(refracted.dot(vision), 0.0), Main.world.alpha);
+				if (cosOmega > 0.0)
 					color.add(specularConstribution());
 			}
 		}

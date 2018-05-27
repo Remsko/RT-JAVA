@@ -9,34 +9,89 @@ import utility.Vector3D;
 public class Tracer
 {
 	public final double bias = 0.0001;
+
+	public Vector3D getReflected(Vector3D incident, Vector3D normal)
+	{
+		/*
+		 * Reflected vector R formula for I and N, incident and normal vector :
+		 * 
+		 * R = I - 2 * (I�N) * N
+		 * 
+		 */
+		
+		Vector3D reflected = incident.sub(normal.mul(2.0 * normal.dot(incident)));
+		
+		reflected.normalize();
+		return (reflected);
+	}
+	
+	public Vector3D getRefracted(Vector3D incident, Vector3D normal, double IOR)
+	{
+		/*
+		 * Refracted vector T formula for IOR (index of refraction), I and N, incident and normal vector :
+		 * 
+		 * Snell :
+		 * eta = eta1 / eta2
+		 * 
+		 * c1 = I�N
+		 * c2 = sqrt(1 - eta * eta * (1 - c1 * c1))
+		 *
+		 * T = eta * I + (eta * c1 - c2) * N
+		 */	
+		Vector3D refracted = new Vector3D();
+		double c1 = normal.dot(incident);
+		double eta1;
+		double eta2;
+		
+		if (c1 < 0.0)
+		{
+			c1 = -c1;
+
+			eta1 = 1.0;
+			eta2 = IOR;
+		}
+		else
+		{
+			normal = normal.mul(-1.0);
+		
+			eta2 = 1.0;
+			eta1 = IOR;	
+		}
+		double eta = eta1 / eta2;
+		double c2 = 1.0 - eta * eta * (1 - c1 * c1);
+		if (c2 > 0.0)
+		{
+			refracted = incident.mul(eta).add(normal.mul(eta * c1 - Math.sqrt(c2)));
+			refracted.normalize();
+		}
+		return (refracted);
+	}
 	
 	public double fresnel(Vector3D incident, Vector3D normal, double IOR)
 	{
 		double cosI = normal.dot(incident);
-		double η1;
-		double η2;
+		double eta1;
+		double eta2;
 		
 		if (cosI < 0.0)
 		{
-			η1 = 1.0;
-			η2 = IOR;
+			eta1 = 1.0;
+			eta2 = IOR;
 		}
 		else
 		{
-			η2 = 1.0;
-			η1 = IOR;
+			eta2 = 1.0;
+			eta1 = IOR;
 		}
-		
-		double sinT = (η1 / η2) * Math.sqrt(Math.max(0.0, 1 - cosI * cosI));
-		
+		double sinT = (eta1 / eta2) * Math.sqrt(Math.max(0.0, 1 - cosI * cosI));
 		if (sinT >= 1.0)
 			return (1.0);
 		else
 		{
 			double cosT = Math.sqrt(Math.max(0.0, 1 - sinT * sinT));
 			cosI = Math.abs(cosI);
-			double Rs = ((η2 * cosI) - (η1 * cosT)) / ((η2 * cosI) + (η1 * cosT));
-			double Rp = ((η1 * cosI) - (η2 * cosT)) / ((η1 * cosI) + (η2 * cosT));
+			double Rs = ((eta2 * cosI) - (eta1 * cosT)) / ((eta2 * cosI) + (eta1 * cosT));
+			double Rp = ((eta1 * cosI) - (eta2 * cosT)) / ((eta1 * cosI) + (eta2 * cosT));
 			return ((Rs * Rs + Rp * Rp) / 2);
 		}
 	}
@@ -47,82 +102,33 @@ public class Tracer
 		Color tmpColor;
 		
 		intersection = new Intersection(ray);
+		
 		if (intersection.object != null)
 		{
 			tmpColor = Main.lightning.PhongShading(intersection, ray);
 			if (intersection.object.type.getType().equals("reflective") == true && rebound > 0)
 			{
-				/*
-				 * Reflected vector R formula for I and N, incident and normal vector :
-				 * 
-				 * R = I - 2 * (I.N) * N
-				 * 
-				 */
-				
 				Ray reboundedRay = new Ray();
-				Vector3D normal = intersection.object.getNormal(intersection);
 				
 				reboundedRay.origin = intersection.position;
-				reboundedRay.direction = ray.direction.sub(normal.mul(2.0 * normal.dot(ray.direction)));
+				reboundedRay.direction = getReflected(ray.direction, intersection.object.getNormal(intersection));
 				
 				tmpColor.mul(1 - intersection.object.type.coefficient);
 				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
 			}
 			if (intersection.object.type.getType().equals("refractive") == true && rebound > 0)
 			{
-				/*
-				 * Refracted vector T formula for IOR (index of refraction), I and N, incident and normal vector :
-				 * 
-				 * Snell :
-				 * η = η1 / η2
-				 * 
-				 * c1 = I.N
-				 * c2 = sqrt(1 - η * η * (1 - c1 * c1))
-				 *
-				 * T = η * I + (η * c1 - c2) * N
-				 * 
-				 */
-				
 				Ray transmittedRay = new Ray();
 				
 				Vector3D normal = intersection.object.getNormal(intersection);
+				boolean outside = normal.dot(ray.direction) < 0.0 ? true : false;
 				Vector3D bias = normal.mul(this.bias);
-				
-				double c1 = normal.dot(ray.direction);
-				double η1;
-				double η2;
-				boolean outside;
-				
-				if (c1 < 0.0)
-				{
-					c1 = -c1;
-
-					outside = true;
-					η1 = 1.0;
-					η2 = intersection.object.type.IOR;
-				}
-				else
-				{
-					normal = normal.mul(-1.0);
-				
-					outside = false;
-					η2 = 1.0;
-					η1 = intersection.object.type.IOR;	
-				}
-				
-				double η = η1 / η2;
-				double c2 = 1.0 - η * η * (1 - c1 * c1);
 				
 				if (outside == true)
 					transmittedRay.origin = intersection.position.sub(bias);
 				else
 					transmittedRay.origin = intersection.position.add(bias);
-				
-				if (c2 > 0.0)
-				{
-					transmittedRay.direction = ray.direction.mul(η).add(normal.mul(η * c1 - Math.sqrt(c2)));
-					transmittedRay.direction.normalize();
-				}
+				transmittedRay.direction = getRefracted(ray.direction, normal, intersection.object.type.IOR);
 				
 				tmpColor.mul(1 - intersection.object.type.coefficient);
 				tmpColor.add(recursiveThrowRay(transmittedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
@@ -141,18 +147,18 @@ public class Tracer
 				{
 					Ray refractedRay = new Ray();
 					refractedRay.origin = outside == true ? intersection.position.sub(bias) : intersection.position.add(bias);
-					refractedRay.direction = new Vector3D();
+					refractedRay.direction = getRefracted(ray.direction, normal, intersection.object.type.IOR);
 					
 					refractionColor = recursiveThrowRay(refractedRay, rebound - 1);
 				}
 				
 				Ray reflectedRay = new Ray();
 				reflectedRay.origin = outside == true ? intersection.position.sub(bias) : intersection.position.add(bias);
-				reflectedRay.direction = new Vector3D();
+				reflectedRay.direction = getReflected(ray.direction, normal);
 				
 				Color reflectionColor = recursiveThrowRay(reflectedRay, rebound - 1);
 				
-				/* final color += reflection color * f + refraction color * (1 - f) */
+				/* final color += reflection's color * f + refraction's color * (1 - f) */
 				tmpColor.add(reflectionColor.mul_ret(f).add_ret(refractionColor.mul_ret(1.0 - f)));
 			}
 		}
