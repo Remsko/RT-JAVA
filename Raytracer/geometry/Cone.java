@@ -1,6 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
+import intersection.Quadratic;
 import main.Main;
 import type.ObjectType;
 import utility.Color;
@@ -26,6 +27,8 @@ public class Cone extends GeometricObject
 		this.powRadius = this.radius * this.radius;
 		this.color = color;
 		this.type = type;
+		this.isplane = false;
+		this.quadra = new Quadratic();
 	}
 	
 	public double hit(Ray ray)
@@ -39,8 +42,12 @@ public class Cone extends GeometricObject
 		double a = rayDirection.x * rayDirection.x - rayDirection.y * rayDirection.y * powRadius + rayDirection.z * rayDirection.z;
 		double b = 2.0 * (rayDirection.x * relative.x - rayDirection.y * relative.y * powRadius + rayDirection.z * relative.z);
 		double c = relative.x * relative.x - relative.y * relative.y * powRadius + relative.z * relative.z;
-	
-		return (Main.quadratic.solver(a, b, c));
+		
+		quadra = new Quadratic(a, b, c);
+		if (quadra.isanswer = false)
+			return (0.0);
+		else
+			return (quadra.smallest > 0.0 ? quadra.smallest : 0.0);
 	}
 	
 	public Vector3D getNormal(Intersection intersection)
@@ -48,8 +55,8 @@ public class Cone extends GeometricObject
 		normal = intersection.position.sub_vec(center);
 		
 		Main.rotation.rotate(normal, rotation);
-		normal.y = -1;
-		//normal.y *= -Math.tan(powRadius);
+		//normal.y = -1;
+		normal.y *= -Math.tan(powRadius);
 		
 		Main.rotation.reverseRotate(normal, rotation);
 		normal.normalize();

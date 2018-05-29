@@ -21,21 +21,19 @@ public class Main
 	public static Projection projection;
 	public static Camera camera;
 	public static Lightning lightning;
-	public static Quadratic quadratic;
 	public static Rotation rotation;
 	
 	public static void main(String [] args)
 	{
 		long start = System.nanoTime();
 
-		world = new World(900, 450);
+		world = new World(1500, 900);
 		image = new Image("Image.png");
 		tracer = new Tracer();
 		sampler = new RegularSample(1);
 		camera = new Camera(new Point3D(50.0, 0.0, -300.0), 30, new Point3D(0.0, 0.0, 0.0));
 		projection = new Perspective();
 		lightning = new Lightning();
-		quadratic = new Quadratic();
 		rotation = new Rotation();
 		
 		for (int y = 0; y < world.viewplane.height; y++)

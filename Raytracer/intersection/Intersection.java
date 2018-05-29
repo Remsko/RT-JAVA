@@ -11,6 +11,8 @@ public class Intersection
 	public double tmp;
 	public GeometricObject object;
 	public Point3D position;
+	public Point3D closestPosition;
+	public Point3D farthestPosition;
 	
 	public Intersection(Ray ray)
 	{
@@ -19,6 +21,11 @@ public class Intersection
 		object = null;
 		closest(ray);
 		position = ray.origin.add(ray.direction.mul(t));
+		if (object != null && object.isplane == false)
+		{
+			closestPosition = ray.origin.add(ray.direction.mul(object.quadra.smallest));
+			farthestPosition = ray.origin.add(ray.direction.mul(object.quadra.biggest));
+		}
 	}
 	
 	public void closest(Ray ray)

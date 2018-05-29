@@ -118,11 +118,11 @@ public class Tracer
 				reboundedRay.direction = getReflected(ray.direction, normal);
 				
 				/* use reflective coefficient */
-				tmpColor.mul(1 - intersection.object.type.coefficient);
-				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
+				//tmpColor.mul(1 - intersection.object.type.coefficient);
+				//tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
 			
 				/* add to the color directly */
-				//tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(0.8));
+				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(0.8));
 			}
 			/* refractive case */
 			if (intersection.object.type.getType().equals("refractive") == true && rebound > 0)
@@ -149,6 +149,14 @@ public class Tracer
 			/* reflective and refractive case */
 			if (intersection.object.type.getType().equals("fresnel") == true && rebound > 0)
 			{
+				double absorbDist = intersection.farthestPosition.sub_vec(intersection.closestPosition).len();
+
+				Color absorbCoef = new Color(0.01, 0.02, 0.06);
+				Color absorb = new Color(1.0 - Math.exp(-absorbCoef.r * (absorbDist)),
+										1.0 - Math.exp(-absorbCoef.g * (absorbDist)),
+										1.0 - Math.exp(-absorbCoef.b * (absorbDist)));
+				tmpColor.mul(absorb);
+				
 				Vector3D normal = intersection.object.getNormal(intersection);
 				boolean outside = normal.dot(ray.direction) < 0.0 ? true : false;
 				Vector3D bias = normal.mul(this.bias);
@@ -172,7 +180,7 @@ public class Tracer
 				
 				Color reflectionColor = recursiveThrowRay(reflectedRay, rebound - 1);
 				
-				/* final color += reflection's color * f + refraction's color * (1 - f) */
+				// final color += reflection's color * f + refraction's color * (1 - f)
 				tmpColor.add(reflectionColor.mul_ret(f).add_ret(refractionColor.mul_ret(1.0 - f)));
 			}
 		}

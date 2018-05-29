@@ -68,6 +68,13 @@ public class Color
 		b /= scalar;
 	}
 	
+	public void	divide(Color color)
+	{
+		r /= color.r;
+		g /= color.g;
+		b /= color.b;
+	}
+	
 	public int toInteger()
 	{
 		r = Math.max(r, 0.0);

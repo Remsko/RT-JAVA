@@ -51,6 +51,7 @@ public class Lightning
 		Intersection intersection = new Intersection(tmpLightRay);
 		
 		return (intersection.t < tmpLightDistance ? true : false);
+		//return (true);
 	}
 	
 	public Color PhongShading(Intersection intersection, Ray ray)

@@ -1,6 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
+import intersection.Quadratic;
 import type.ObjectType;
 import utility.Color;
 import utility.Point3D;
@@ -19,7 +20,9 @@ public class Plane extends GeometricObject
 		this.color = color;
 		this.normal = normal;
 		this.type = type;
-
+		this.isplane = true;
+		this.quadra = new Quadratic();
+		
 		normal.normalize();
 	}
 	

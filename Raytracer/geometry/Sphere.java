@@ -1,7 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
-import main.Main;
+import intersection.Quadratic;
 import type.ObjectType;
 import utility.Color;
 import utility.Point3D;
@@ -19,6 +19,8 @@ public class Sphere extends GeometricObject
 		this.powRadius = radius * radius;
 		this.color = color;
 		this.type = type;
+		this.isplane = false;
+		this.quadra = new Quadratic();
 	}
 	
 	public double hit(Ray ray)
@@ -29,7 +31,11 @@ public class Sphere extends GeometricObject
 		double b = 2.0 * positionRelative.dot(ray.direction);
 		double c = positionRelative.dot(ray.origin.sub(center)) - powRadius;
 	
-		return (Main.quadratic.solver(a, b, c));
+		quadra = new Quadratic(a, b, c);
+		if (quadra.isanswer = false)
+			return (0.0);
+		else
+			return (quadra.smallest > 0.0 ? quadra.smallest : 0.0);
 	}
 	
 	public Vector3D getNormal(Intersection intersection)

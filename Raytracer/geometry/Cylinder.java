@@ -1,6 +1,7 @@
 package geometry;
 
 import intersection.Intersection;
+import intersection.Quadratic;
 import main.Main;
 import type.ObjectType;
 import utility.Color;
@@ -24,6 +25,8 @@ public class Cylinder extends GeometricObject
 		this.color = color;
 		this.rotation = rotation;
 		this.type = type;
+		this.isplane = false;
+		this.quadra = new Quadratic();
 	}
 	
 	public double hit(Ray ray)
@@ -38,7 +41,11 @@ public class Cylinder extends GeometricObject
 		double b = 2.0 * (rayDirection.x * relative.x + rayDirection.z * relative.z);
 		double c = relative.x * relative.x + relative.z * relative.z - powRadius;
 	
-		return (Main.quadratic.solver(a, b, c));
+		quadra = new Quadratic(a, b, c);
+		if (quadra.isanswer = false)
+			return (0.0);
+		else
+			return (quadra.smallest > 0.0 ? quadra.smallest : 0.0);
 	}
 	
 	public Vector3D getNormal(Intersection intersection)
