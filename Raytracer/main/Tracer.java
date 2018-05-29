@@ -15,7 +15,7 @@ public class Tracer
 		/*
 		 * Reflected vector R formula for I and N, incident and normal vector :
 		 * 
-		 * R = I - 2 * (I·N) * N
+		 * R = I - 2 * (Iï¿½N) * N
 		 * 
 		 */
 		
@@ -33,7 +33,7 @@ public class Tracer
 		 * Snell :
 		 * eta = eta1 / eta2
 		 * 
-		 * c1 = I·N
+		 * c1 = Iï¿½N
 		 * c2 = sqrt(1 - eta * eta * (1 - c1 * c1))
 		 *
 		 * T = eta * I + (eta * c1 - c2) * N
@@ -106,16 +106,25 @@ public class Tracer
 		if (intersection.object != null)
 		{
 			tmpColor = Main.lightning.PhongShading(intersection, ray);
+			/* reflective case */
 			if (intersection.object.type.getType().equals("reflective") == true && rebound > 0)
 			{
 				Ray reboundedRay = new Ray();
+				Vector3D normal = intersection.object.getNormal(intersection);
+				boolean outside = normal.dot(ray.direction) < 0.0 ? true : false;
+				Vector3D bias = normal.mul(this.bias);
 				
-				reboundedRay.origin = intersection.position;
-				reboundedRay.direction = getReflected(ray.direction, intersection.object.getNormal(intersection));
+				reboundedRay.origin = outside == true ? intersection.position.sub(bias) : intersection.position.add(bias);
+				reboundedRay.direction = getReflected(ray.direction, normal);
 				
+				/* use reflective coefficient */
 				tmpColor.mul(1 - intersection.object.type.coefficient);
 				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
+			
+				/* add to the color directly */
+				//tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(0.8));
 			}
+			/* refractive case */
 			if (intersection.object.type.getType().equals("refractive") == true && rebound > 0)
 			{
 				Ray transmittedRay = new Ray();
@@ -130,9 +139,14 @@ public class Tracer
 					transmittedRay.origin = intersection.position.add(bias);
 				transmittedRay.direction = getRefracted(ray.direction, normal, intersection.object.type.IOR);
 				
+				/* use refractive coefficient */
 				tmpColor.mul(1 - intersection.object.type.coefficient);
 				tmpColor.add(recursiveThrowRay(transmittedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
+			
+				/* add to the color directly */
+				//tmpColor.add(recursiveThrowRay(transmittedRay, rebound - 1).mul_ret(0.8));
 			}
+			/* reflective and refractive case */
 			if (intersection.object.type.getType().equals("fresnel") == true && rebound > 0)
 			{
 				Vector3D normal = intersection.object.getNormal(intersection);

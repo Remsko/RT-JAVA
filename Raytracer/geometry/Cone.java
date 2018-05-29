@@ -48,7 +48,8 @@ public class Cone extends GeometricObject
 		normal = intersection.position.sub_vec(center);
 		
 		Main.rotation.rotate(normal, rotation);
-		normal.y *= -Math.tan(powRadius);
+		normal.y = -1;
+		//normal.y *= -Math.tan(powRadius);
 		
 		Main.rotation.reverseRotate(normal, rotation);
 		normal.normalize();
