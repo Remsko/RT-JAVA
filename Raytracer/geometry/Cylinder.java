@@ -22,7 +22,7 @@ public class Cylinder extends GeometricObject
 	{
 		this.center = center;
 		this.powRadius = radius * radius;
-		this.color = color;
+		this.color = color.divide_ret(255.0);
 		this.rotation = rotation;
 		this.type = type;
 		this.isplane = false;

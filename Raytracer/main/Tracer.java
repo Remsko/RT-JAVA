@@ -114,15 +114,15 @@ public class Tracer
 				boolean outside = normal.dot(ray.direction) < 0.0 ? true : false;
 				Vector3D bias = normal.mul(this.bias);
 				
-				reboundedRay.origin = outside == true ? intersection.position.sub(bias) : intersection.position.add(bias);
+				reboundedRay.origin = outside == true ? intersection.position.add(bias) : intersection.position.sub(bias);
 				reboundedRay.direction = getReflected(ray.direction, normal);
 				
 				/* use reflective coefficient */
-				//tmpColor.mul(1 - intersection.object.type.coefficient);
-				//tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
+				tmpColor.mul(1 - intersection.object.type.coefficient);
+				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
 			
 				/* add to the color directly */
-				tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(0.8));
+				//tmpColor.add(recursiveThrowRay(reboundedRay, rebound - 1).mul_ret(0.8));
 			}
 			/* refractive case */
 			if (intersection.object.type.getType().equals("refractive") == true && rebound > 0)
@@ -175,7 +175,7 @@ public class Tracer
 				}
 				
 				Ray reflectedRay = new Ray();
-				reflectedRay.origin = outside == true ? intersection.position.sub(bias) : intersection.position.add(bias);
+				reflectedRay.origin = outside == true ? intersection.position.add(bias) : intersection.position.sub(bias);
 				reflectedRay.direction = getReflected(ray.direction, normal);
 				
 				Color reflectionColor = recursiveThrowRay(reflectedRay, rebound - 1);

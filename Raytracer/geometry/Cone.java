@@ -25,7 +25,7 @@ public class Cone extends GeometricObject
 		this.rotation = rotation;
 		this.radius = Math.toRadians(radius);
 		this.powRadius = this.radius * this.radius;
-		this.color = color;
+		this.color = color.divide_ret(255.0);
 		this.type = type;
 		this.isplane = false;
 		this.quadra = new Quadratic();

@@ -17,10 +17,10 @@ public class Plane extends GeometricObject
 	public Plane(Point3D center, Color color, Vector3D normal, ObjectType type)
 	{
 		this.center = center;
-		this.color = color;
+		this.color = color.divide_ret(255.0);
 		this.normal = normal;
 		this.type = type;
-		this.isplane = true;
+		this.isplane = false;
 		this.quadra = new Quadratic();
 		
 		normal.normalize();

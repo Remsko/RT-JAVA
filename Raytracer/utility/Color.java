@@ -75,6 +75,16 @@ public class Color
 		b /= color.b;
 	}
 	
+	public Color divide_ret(Color color)
+	{
+		return (new Color(r /= color.r, g /= color.g, b /= color.b));
+	}
+	
+	public Color divide_ret(double scalar)
+	{
+		return (new Color(r /= scalar, g /= scalar, b /= scalar));
+	}
+	
 	public int toInteger()
 	{
 		r = Math.max(r, 0.0);

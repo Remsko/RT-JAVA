@@ -17,7 +17,7 @@ public class Sphere extends GeometricObject
 	{
 		this.center = center;
 		this.powRadius = radius * radius;
-		this.color = color;
+		this.color = color.divide_ret(255.0);
 		this.type = type;
 		this.isplane = false;
 		this.quadra = new Quadratic();
