@@ -61,7 +61,7 @@ public class Lightning
 		Vector3D normal;
 		Vector3D refracted;
 		Vector3D vision;
-		
+		/*
 		for (int i = 0; i < Main.world.lights.size(); i++)
 		{
 			tmpLight = Main.world.lights.get(i);
@@ -83,6 +83,7 @@ public class Lightning
 					color.add(specularConstribution());
 			}
 		}
+		*/
 		return (color);
 	}
 }

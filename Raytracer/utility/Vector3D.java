@@ -84,4 +84,43 @@ public class Vector3D extends TripleDouble
 		y /= magnitude;
 		z /= magnitude;
 	}
+	
+	public Vector3D getReflected(Vector3D incident, Vector3D normal)
+	{
+		Vector3D reflected = incident.sub(normal.mul(2.0 * normal.dot(incident)));
+		
+		reflected.normalize();
+		return (reflected);
+	}
+	
+	public Vector3D getRefracted(Vector3D incident, Vector3D normal, double IOR)
+	{
+		Vector3D refracted = new Vector3D();
+		double c1 = normal.dot(incident);
+		double eta1;
+		double eta2;
+		
+		if (c1 < 0.0)
+		{
+			c1 = -c1;
+
+			eta1 = 1.0;
+			eta2 = IOR;
+		}
+		else
+		{
+			normal = normal.mul(-1.0);
+		
+			eta2 = 1.0;
+			eta1 = IOR;	
+		}
+		double eta = eta1 / eta2;
+		double c2 = 1.0 - eta * eta * (1 - c1 * c1);
+		if (c2 > 0.0)
+		{
+			refracted = incident.mul(eta).add(normal.mul(eta * c1 - Math.sqrt(c2)));
+			refracted.normalize();
+		}
+		return (refracted);
+	}
 }
