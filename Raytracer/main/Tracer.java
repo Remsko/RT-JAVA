@@ -140,7 +140,7 @@ public class Tracer
 				transmittedRay.direction = getRefracted(ray.direction, normal, intersection.object.type.IOR);
 				
 				/* use refractive coefficient */
-				tmpColor.mul(1 - intersection.object.type.coefficient);
+				//tmpColor.mul(1 - intersection.object.type.coefficient);
 				tmpColor.add(recursiveThrowRay(transmittedRay, rebound - 1).mul_ret(intersection.object.type.coefficient));
 			
 				/* add to the color directly */
