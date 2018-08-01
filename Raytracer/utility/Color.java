@@ -61,6 +61,11 @@ public class Color
 		return (new Color(r * factor, g * factor, b * factor));
 	}
 	
+	public Color mul_ret(Color color)
+	{
+		return (new Color(r * color.r, g * color.g, b * color.b));
+	}
+	
 	public void	divide(int scalar)
 	{
 		r /= scalar;
