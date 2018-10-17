@@ -38,9 +38,18 @@ public class Lightning
 		return (diffuse);
 	}
 	
-	public Color ambientContribution()
+	public Color ambientContribution(Intersection intersection)
 	{
 		Color ambient = new Color(object.color);
+		
+		double absorbDist = intersection.farthestPosition.sub_vec(intersection.closestPosition).len();
+
+		Color absorbCoef = new Color(0.01, 0.02, 0.06);
+		Color absorb = new Color(1.0 - Math.exp(-absorbCoef.r * (absorbDist)),
+								1.0 - Math.exp(-absorbCoef.g * (absorbDist)),
+								1.0 - Math.exp(-absorbCoef.b * (absorbDist)));
+		//System.out.println(absorb.r);
+		ambient.mul(absorb);
 		
 		ambient.mul(Main.world.ambientIntensity);
 		return (ambient);
@@ -57,7 +66,7 @@ public class Lightning
 	public Color PhongShading(Intersection intersection, Ray ray)
 	{
 		this.object = intersection.object;
-		Color color = ambientContribution();
+		Color color = ambientContribution(intersection);
 		Vector3D normal;
 		Vector3D refracted;
 		Vector3D vision;

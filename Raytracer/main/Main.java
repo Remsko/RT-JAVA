@@ -27,7 +27,7 @@ public class Main
 	{
 		long start = System.nanoTime();
 
-		world = new World(750, 450);
+		world = new World(1000, 1000);
 		image = new Image("Image.png");
 		tracer = new Tracer();
 		sampler = new RegularSample(1);
